@@ -50,9 +50,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean checkData(String userName, String password) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT USERNAME, PASSWORD from Login_Table where USERNAME = '"+userName+" ' AND PASSWORD = '"+password+"'", null);
-        if(res.getCount()==0){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res1 = db.rawQuery("SELECT * FROM Login_Table WHERE USER_NAME = ? AND PASSWORD = ?", new String[]{userName, password});
+
+        if(res1.getCount()==0){
             return false;
         }
         else{

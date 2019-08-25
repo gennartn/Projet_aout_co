@@ -10,9 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class New_login extends Login {
-    private static TextView user_name_1;
-    private static TextView password_1;
-    private static TextView confirm_password;
+
     private static Button creat_btn;
     private static EditText username;
     private static EditText password;
@@ -20,6 +18,9 @@ public class New_login extends Login {
     private static Button  return_1;
     public DatabaseHelper db;
 
+    public void New_login(){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class New_login extends Login {
 
         password_confirm = (EditText) findViewById(R.id.password_confirm);
 
+        db = new DatabaseHelper(this);
+
         return_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,18 +45,18 @@ public class New_login extends Login {
             }
         });
 
-        if(CompareString(password.getText().toString(), password_confirm.getText().toString())){
             creat_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    addData(password.getText().toString(), password_confirm.getText().toString());
+                    if(CompareString(password.getText().toString(), password_confirm.getText().toString())) {
+                        addData(username.getText().toString(), password.getText().toString());
+                    }
+                    else{
+                        Toast.makeText(New_login.this, "la confirmation du password est fausse", Toast.LENGTH_LONG).show();
+                        Toast.makeText(New_login.this, "retapez la confirmation du password", Toast.LENGTH_LONG).show();
+                    }
                 }
             });
-        }
-        else{
-            Toast.makeText(New_login.this, "la confirmation du password est fausse", Toast.LENGTH_LONG).show();
-            Toast.makeText(New_login.this, "retapez la confirmation du password", Toast.LENGTH_LONG).show();
-        }
 
 
     }
@@ -72,7 +75,7 @@ public class New_login extends Login {
 
     }
 
-    public DatabaseHelper getDbLogin(){
+    public DatabaseHelper getBbLogin(){
         return db;
     }
 
@@ -82,7 +85,7 @@ public class New_login extends Login {
             Toast.makeText(New_login.this, "Votre account est créé", Toast.LENGTH_LONG).show();
         }
         else{
-            Toast.makeText(New_login.this, "Problème pour créer votre account", Toast.LENGTH_LONG).show();
+            Toast.makeText(New_login.this, "L'identifiant ou le mot de passe est déjà utilisé", Toast.LENGTH_LONG).show();
         }
 
     }
