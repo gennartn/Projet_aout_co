@@ -40,6 +40,7 @@ public class New_login extends Login {
 
         db = new Database_log(this);
 
+
         return_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,9 +83,12 @@ public class New_login extends Login {
     }
 
     public void addData(String username, String password) {
+        db.open();
         Log log = new Log(username,password);
         boolean isInserted = db.insertData(log);
+        db.close();
         if(isInserted == true){
+
             Toast.makeText(New_login.this, "Votre account est créé", Toast.LENGTH_LONG).show();
         }
         else{

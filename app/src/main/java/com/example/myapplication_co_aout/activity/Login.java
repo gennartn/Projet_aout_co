@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
 
         db = new Database_log(this);
 
-        log = new Log(username.getText().toString(),password.getText().toString());
+
 
 
         creat_new_account.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +48,7 @@ public class Login extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Check_Data_Base(log);
+                Check_Data_Base(username.getText().toString(),password.getText().toString());
 
             }
         });
@@ -60,18 +60,21 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Check_Data_Base(Log log){
-
-
+    public void Check_Data_Base(String username, String password){
+        Log log = new Log(username, password);
+        db.open();
         if(db == null){
+            db.close();
             Toast.makeText(Login.this, "Aucun compte n'a été créé", Toast.LENGTH_LONG).show();
         }
         else{
             if(db.checkData(log)){
                 Toast.makeText(Login.this, "Votre code est correct", Toast.LENGTH_LONG).show();
+                db.close();
                 startActivity(new Intent(getApplicationContext(), Liste_souhaitActivity.class));
             }
             else{
+                db.close();
                 Toast.makeText(Login.this, "Votre code est incorrect", Toast.LENGTH_LONG).show();
             }
         }

@@ -61,8 +61,8 @@ public class Database_log {
     }
 
     public boolean checkData(Log log) {
-        Cursor res1 = db.rawQuery("SELECT * FROM Login_Table WHERE USER_NAME = ? AND PASSWORD = ?", new String[]{log.getUsername(), log.getPassword()});
 
+        Cursor res1 = db.rawQuery("SELECT * FROM Login_Table WHERE USER_NAME = ? AND PASSWORD = ?", new String[]{log.getUsername(), log.getPassword()});
         if(res1.getCount()==0){
             return false;
         }

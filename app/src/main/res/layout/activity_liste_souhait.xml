@@ -7,7 +7,7 @@
     tools:context=".activity.Liste_souhaitActivity">
 
     <Button
-        android:id="@+id/Button"
+        android:id="@+id/button_creer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -21,6 +21,10 @@
         android:id="@+id/buckysListView"
         android:layout_width="395dp"
         android:layout_height="389dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
