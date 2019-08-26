@@ -65,6 +65,7 @@ public class Login extends AppCompatActivity {
         else{
             if(db.checkData(username,password)){
                 Toast.makeText(Login.this, "Votre code est correct", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), Liste_souhait.class));
             }
             else{
                 Toast.makeText(Login.this, "Votre code est incorrect", Toast.LENGTH_LONG).show();
