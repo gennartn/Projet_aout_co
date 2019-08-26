@@ -14,9 +14,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_1= "USER_NAME";
     public static final String COL_2 = "PASSWORD";
 
-    public static final String TABLE_NAME_2 = "Liste_souhait_table";
-    public static final String COL_1_Liste_De_Souhait = "LISTE_DE_SOUHAIT";
-
     public DatabaseHelper(Context context) {
 
         super(context, DATABASE_NAME,null, 1);
