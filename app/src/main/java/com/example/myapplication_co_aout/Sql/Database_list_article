@@ -1,0 +1,117 @@
+/*package com.example.myapplication_co_aout.Sql;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.myapplication_co_aout.model.Liste_article;
+import com.example.myapplication_co_aout.model.Liste_souhait_model;
+
+import java.util.ArrayList;
+
+public class Database_list_article {
+    private static final String TABLE_NAME = "liste_article";
+    public static final String NOM_LISTE_SOUHAIT="nom_list_souhait";
+
+
+    private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
+    private SQLiteDatabase db;
+
+
+    public String CreatStringTable(int i){
+        String creat_table="CREATE TABLE "+TABLE_NAME+ " ( ";
+        creat_table = creat_table + NOM_LISTE_SOUHAIT + " TEXT primary key, ";
+        for(int j=1;j<=i;j++){
+            if(j<i) {
+                creat_table = creat_table + " ARTICLE" + j + " TEXT, ";
+            }
+            else{
+                creat_table = creat_table + "ARTICLE" + j + " TEXT);";
+            }
+
+        }
+        return creat_table;
+    }
+
+    // Constructeur
+    public Database_list_article(Context context)
+    {
+        maBaseSQLite = MySQLite.getInstance(context);
+    }
+
+    public void open()
+    {
+        //on ouvre la table en lecture/écriture
+        db = maBaseSQLite.getWritableDatabase();
+    }
+
+    public void close()
+    {
+        //on ferme l'accès à la BDD
+        db.close();
+    }
+
+    public void SuprimeCol(int i){
+        db.execSQL("SELECT * FROM "+TABLE_NAME);
+        db.execSQL("ALTER TABLE "+TABLE_NAME+" DROP ARTICLE"+i);
+    }
+
+    public long addArticle(Liste_article l_article) {
+        // Ajout d'un enregistrement dans la table
+        ArrayList<String> list_article= l_article.getNom_liste_article();
+        ContentValues values = new ContentValues();
+        for(int i=0;i<list_article.size();i++){
+
+        }
+        //values.put(NOM_LISTE_SOUHAIT ,l_souhait.getNom_liste());
+        //values.put(NOM_PERSONNE,l_souhait.getNom_personne());
+
+        // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
+        return db.insert(TABLE_NAME,null,values);
+    }
+
+    public int modArticle(Liste_souhait_model l_souhait) {
+        // modification d'un enregistrement
+        // valeur de retour : (int) nombre de lignes affectées par la requête
+
+        ContentValues values = new ContentValues();
+        values.put(NOM_LISTE_SOUHAIT, l_souhait.getNom_liste());
+        values.put(NOM_PERSONNE, l_souhait.getNom_personne());
+
+        String where = NOM_LISTE_SOUHAIT+" = ?";
+        String[] whereArgs = {l_souhait.getNom_liste()+""};
+
+        return db.update(TABLE_NAME, values, where, whereArgs);
+    }
+
+    public int supArticle(Liste_souhait_model l_souhait) {
+        // suppression d'un enregistrement
+        // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
+
+        String where = NOM_LISTE_SOUHAIT+" = ?";
+        String[] whereArgs = {l_souhait.getNom_liste()+""};
+
+        return db.delete(TABLE_NAME, where, whereArgs);
+    }
+
+    public Liste_souhait_model getArticle(String nom_list_souhait) {
+        // Retourne l'animal dont l'id est passé en paramètre
+
+        Liste_souhait_model a=new Liste_souhait_model("","");
+
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+NOM_LISTE_SOUHAIT+"="+nom_list_souhait, null);
+        if (c.moveToFirst()) {
+            a.setNom_list(c.getString(c.getColumnIndex(NOM_LISTE_SOUHAIT)));
+            a.setNom_personne(c.getString(c.getColumnIndex(NOM_PERSONNE)));
+            c.close();
+        }
+
+        return a;
+    }
+
+    public Cursor getArticles() {
+        // sélection de tous les enregistrements de la table
+        return db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
+    }
+}*/

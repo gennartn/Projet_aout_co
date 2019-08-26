@@ -1,4 +1,4 @@
-package com.example.myapplication_co_aout;
+package com.example.myapplication_co_aout.model;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.myapplication_co_aout.R;
+
 public class CustomAdapter extends ArrayAdapter<String> {
 
-    CustomAdapter(Context context, String[] foods){
-        super(context,R.layout.activity_custom_adapter ,foods);
+    public CustomAdapter(Context context, String[] foods){
+        super(context, R.layout.activity_custom_adapter ,foods);
     }
 
     @Override

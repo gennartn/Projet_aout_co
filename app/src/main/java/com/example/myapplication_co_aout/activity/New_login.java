@@ -1,13 +1,15 @@
-package com.example.myapplication_co_aout;
+package com.example.myapplication_co_aout.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication_co_aout.R;
+import com.example.myapplication_co_aout.Sql.Database_log;
+import com.example.myapplication_co_aout.model.Log;
 
 public class New_login extends Login {
 
@@ -16,7 +18,7 @@ public class New_login extends Login {
     private static EditText password;
     private static EditText password_confirm;
     private static Button  return_1;
-    public DatabaseHelper db;
+    public Database_log db;
 
     public void New_login(){
 
@@ -36,7 +38,7 @@ public class New_login extends Login {
 
         password_confirm = (EditText) findViewById(R.id.password_confirm);
 
-        db = new DatabaseHelper(this);
+        db = new Database_log(this);
 
         return_1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,12 +77,13 @@ public class New_login extends Login {
 
     }
 
-    public DatabaseHelper getBbLogin(){
+    public Database_log getBbLogin(){
         return db;
     }
 
     public void addData(String username, String password) {
-        boolean isInserted = db.insertData(username,password);
+        Log log = new Log(username,password);
+        boolean isInserted = db.insertData(log);
         if(isInserted == true){
             Toast.makeText(New_login.this, "Votre account est créé", Toast.LENGTH_LONG).show();
         }

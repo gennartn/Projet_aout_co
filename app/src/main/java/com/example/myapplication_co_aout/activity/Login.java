@@ -1,8 +1,6 @@
-package com.example.myapplication_co_aout;
+package com.example.myapplication_co_aout.activity;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,15 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication_co_aout.R;
+import com.example.myapplication_co_aout.Sql.Database_log;
+import com.example.myapplication_co_aout.model.Log;
+
+
 
 public class Login extends AppCompatActivity {
     private static EditText username;
     private static EditText password;
     private static Button login_btn;
     private static Button creat_new_account;
-    public DatabaseHelper db;
-
-
+    public Database_log db;
+    private Log log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,9 @@ public class Login extends AppCompatActivity {
 
 
 
-        db = new DatabaseHelper(getApplicationContext());
+        db = new Database_log(this);
+
+        log = new Log(username.getText().toString(),password.getText().toString());
 
 
         creat_new_account.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +48,7 @@ public class Login extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Check_Data_Base(username.getText().toString(),password.getText().toString());
+                Check_Data_Base(log);
 
             }
         });
@@ -56,16 +60,16 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Check_Data_Base(String username, String password){
+    public void Check_Data_Base(Log log){
 
 
         if(db == null){
             Toast.makeText(Login.this, "Aucun compte n'a été créé", Toast.LENGTH_LONG).show();
         }
         else{
-            if(db.checkData(username,password)){
+            if(db.checkData(log)){
                 Toast.makeText(Login.this, "Votre code est correct", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), Liste_souhait.class));
+                startActivity(new Intent(getApplicationContext(), Liste_souhaitActivity.class));
             }
             else{
                 Toast.makeText(Login.this, "Votre code est incorrect", Toast.LENGTH_LONG).show();

@@ -1,4 +1,4 @@
-package com.example.myapplication_co_aout;
+package com.example.myapplication_co_aout.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +8,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class Liste_souhait extends AppCompatActivity {
+import com.example.myapplication_co_aout.R;
+import com.example.myapplication_co_aout.model.CustomAdapter;
+
+public class Liste_souhaitActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class Liste_souhait extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
                 String food = String.valueOf(parent.getItemAtPosition(position));
-                Toast.makeText(Liste_souhait.this, food, Toast.LENGTH_LONG).show();
+                Toast.makeText(Liste_souhaitActivity.this, food, Toast.LENGTH_LONG).show();
             }
         });
     }

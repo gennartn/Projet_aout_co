@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Liste_souhait"></activity>
-        <activity android:name=".CustomAdapter" />
+        <activity android:name=".activity.Liste_souhaitActivity"></activity>
+        <activity android:name=".model.CustomAdapter" />
         <activity android:name=".Listes_souhait" />
-        <activity android:name=".New_login" />
-        <activity android:name=".Login">
+        <activity android:name=".activity.New_login" />
+        <activity android:name=".activity.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
