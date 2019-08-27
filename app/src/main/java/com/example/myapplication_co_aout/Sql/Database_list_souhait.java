@@ -59,16 +59,17 @@ public class Database_list_souhait  {
         return db.insert(TABLE_NAME,null,values);
     }
 
-    public int modListSouhait(Liste_souhait_model l_souhait, String utilisateur) {
+    public int modListSouhait(String souhait, String personne, String nouveau_souhait, String nouvelle_personne, String utilisateur) {
         // modification d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la requête
 
         ContentValues values = new ContentValues();
-        values.put(NOM_LISTE_SOUHAIT, l_souhait.getNom_liste());
-        values.put(NOM_PERSONNE, l_souhait.getNom_personne());
+        values.put(USERNAME, utilisateur);
+        values.put(NOM_LISTE_SOUHAIT, nouveau_souhait);
+        values.put(NOM_PERSONNE, nouvelle_personne);
 
-        String where = NOM_LISTE_SOUHAIT+" = ? AND "+ utilisateur +" = ?";
-        String[] whereArgs = {l_souhait.getNom_liste()+"", utilisateur+""};
+        String where = NOM_LISTE_SOUHAIT+" = ? AND "+ USERNAME +" = ? AND "+NOM_PERSONNE+" = ?";
+        String[] whereArgs = {souhait, utilisateur,personne};
 
         return db.update(TABLE_NAME, values, where, whereArgs);
     }

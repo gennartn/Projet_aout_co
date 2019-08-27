@@ -9,13 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.supp_liste_de_souhait"></activity>
+        <activity android:name=".activity.mod_liste_de_souhait"></activity>
+        <activity android:name=".activity.supp_liste_de_souhait" />
         <activity android:name=".activity.sauver_liste_de_souhait" />
-        <activity
-            android:name=".activity.display_liste_souhait"
-
-
-            />
+        <activity android:name=".activity.display_liste_souhait" />
         <activity android:name=".activity.New_login" />
         <activity android:name=".activity.Login">
             <intent-filter>

@@ -10,8 +10,8 @@
 
     <ListView
         android:id="@+id/listVieuw_souhait"
-        android:layout_width="376dp"
-        android:layout_height="481dp"
+        android:layout_width="382dp"
+        android:layout_height="413dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -20,7 +20,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/creer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -29,21 +29,30 @@
         android:id="@+id/creer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="108dp"
-        android:layout_marginRight="108dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginRight="104dp"
         android:layout_marginBottom="8dp"
         android:text="Creer une liste de souhait"
-        app:layout_constraintBottom_toTopOf="@+id/button_supprimer"
+        app:layout_constraintBottom_toTopOf="@+id/modifier"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_supprimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:layout_marginBottom="4dp"
-        android:text="supprimer des éléments"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:text="supprimer "
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/modifier"
+        android:layout_width="191dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
+        android:text="Modifier "
+        app:layout_constraintBottom_toTopOf="@+id/button_supprimer"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>

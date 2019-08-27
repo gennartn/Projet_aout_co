@@ -24,6 +24,7 @@ public class display_liste_souhait extends AppCompatActivity {
     private static ListView listViewSouhait;
     private static Button creer;
     private static Button button_supprimer;
+    private static Button button_modifier;
 
 
 
@@ -37,18 +38,14 @@ public class display_liste_souhait extends AppCompatActivity {
         listViewSouhait= (ListView) findViewById(R.id.listVieuw_souhait);
         creer = (Button) findViewById(R.id.creer);
         button_supprimer=(Button) findViewById((R.id.button_supprimer));
+        button_modifier=(Button) findViewById(R.id.modifier);
 
 
         db.open();
         ListView();
         db.close();
 
-        creer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), sauver_liste_de_souhait.class));
-            }
-        });
+
         listViewSouhait.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,10 +54,24 @@ public class display_liste_souhait extends AppCompatActivity {
             }
         });
 
+        creer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), sauver_liste_de_souhait.class));
+            }
+        });
+
         button_supprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),supp_liste_de_souhait.class));
+            }
+        });
+
+        button_modifier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),mod_liste_de_souhait.class));
             }
         });
 
