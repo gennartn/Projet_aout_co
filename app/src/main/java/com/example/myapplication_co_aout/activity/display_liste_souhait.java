@@ -23,6 +23,7 @@ public class display_liste_souhait extends AppCompatActivity {
 
     private static ListView listViewSouhait;
     private static Button creer;
+    private static Button button_supprimer;
 
 
 
@@ -35,6 +36,7 @@ public class display_liste_souhait extends AppCompatActivity {
 
         listViewSouhait= (ListView) findViewById(R.id.listVieuw_souhait);
         creer = (Button) findViewById(R.id.creer);
+        button_supprimer=(Button) findViewById((R.id.button_supprimer));
 
 
         db.open();
@@ -55,6 +57,13 @@ public class display_liste_souhait extends AppCompatActivity {
             }
         });
 
+        button_supprimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),supp_liste_de_souhait.class));
+            }
+        });
+
     }
     private void ListView(){
         Cursor cursor = db.getListSouhaits(Login.getUtilisateurPrincipale().getUsername());
@@ -69,7 +78,6 @@ public class display_liste_souhait extends AppCompatActivity {
                 cursor.moveToNext();
             }
         }
-        Toast.makeText(display_liste_souhait.this, "la longueur de l'array est: "+souhaits.size(), Toast.LENGTH_LONG).show();
         ListeSouhaitAdapter adapter = new ListeSouhaitAdapter(this, R.layout.activity_list_view_souhait_adapter, souhaits);
         listViewSouhait.setAdapter(adapter);
 

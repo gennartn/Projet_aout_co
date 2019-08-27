@@ -67,20 +67,35 @@ public class Database_list_souhait  {
         values.put(NOM_LISTE_SOUHAIT, l_souhait.getNom_liste());
         values.put(NOM_PERSONNE, l_souhait.getNom_personne());
 
-        String where = NOM_LISTE_SOUHAIT+" = ?"+ utilisateur +" = ?";
+        String where = NOM_LISTE_SOUHAIT+" = ? AND "+ utilisateur +" = ?";
         String[] whereArgs = {l_souhait.getNom_liste()+"", utilisateur+""};
 
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
-    public int supListSouhait(Liste_souhait_model l_souhait) {
+    public int supListSouhait(String souhait, String utilisateur) {
         // suppression d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
-        String where = NOM_LISTE_SOUHAIT+" = ?";
-        String[] whereArgs = {l_souhait.getNom_liste()+""};
+        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {souhait, utilisateur};
 
         return db.delete(TABLE_NAME, where, whereArgs);
+    }
+    public  int supPersonneSouhait(String personne, String utilisateur){
+
+        String where = NOM_PERSONNE+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {personne, utilisateur};
+
+        return db.delete(TABLE_NAME, where, whereArgs);
+    }
+    public int supUnSouhait(String souhait, String personne, String utilisateur){
+
+        String where = NOM_LISTE_SOUHAIT+" =? and "+NOM_PERSONNE+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {souhait, personne, utilisateur};
+
+        return db.delete(TABLE_NAME, where, whereArgs);
+
     }
 
     public Liste_souhait_model getListSouhait(String nom_list_souhait, String utilisateur) {

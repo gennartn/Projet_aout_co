@@ -5,19 +5,17 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="PROJET"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".supp_liste_de_souhait"></activity>
+        <activity android:name=".activity.supp_liste_de_souhait"></activity>
         <activity android:name=".activity.sauver_liste_de_souhait" />
         <activity
-            android:name=".model.ListeSouhaitAdapter"
-            android:label="@string/title_activity_list_view_souhait_adapter"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ListeView_souhait" />
-        <activity android:name=".nom_liste_souhait" />
-        <activity android:name=".activity.display_liste_souhait" />
+            android:name=".activity.display_liste_souhait"
+
+
+            />
         <activity android:name=".activity.New_login" />
         <activity android:name=".activity.Login">
             <intent-filter>
