@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.myapplication_co_aout.model.Liste_souhait_model;
 
-public class Database_list_souhait {
+import java.util.ArrayList;
+
+public class Database_list_souhait  {
     private static final String TABLE_NAME = "liste_souhait";
     public static final String NOM_LISTE_SOUHAIT="nom_list_souhait";
     public static final String NOM_PERSONNE="personne";
@@ -21,6 +23,7 @@ public class Database_list_souhait {
 
     // Constructeur
     public Database_list_souhait(Context context)
+
     {
         maBaseSQLite = MySQLite.getInstance(context);
     }
@@ -86,9 +89,38 @@ public class Database_list_souhait {
 
         return a;
     }
+    public ArrayList<String> takeDataListeDeSouhait(){
+        ArrayList<String> list = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
+        if(cursor.getCount()!=0) {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                list.add(cursor.getString(1));
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+        else{
+            list.add("aucune liste n'a été créé");
+        }
+        return list;
+    }
 
     public Cursor getListSouhaits() {
-        // sélection de tous les enregistrements de la table
         return db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
     }
+
+    /*public void getInfos(){
+        Cursor cursor = getListSouhaits();
+        String nom_liste_souhait, nom_personne;
+        souhaitAdapter = new Liste_souhaitAdapter(context);
+        while(cursor.moveToNext()){
+            nom_liste_souhait= cursor.getString(cursor.getColumnIndex(NOM_LISTE_SOUHAIT));
+            nom_personne = cursor.getString(cursor.getColumnIndex(NOM_PERSONNE));
+            Liste_souhait_model l_souhait = new Liste_souhait_model(nom_liste_souhait,nom_personne);
+            //publishProgress(l_souhait);
+        }
+
+    }*/
+
 }

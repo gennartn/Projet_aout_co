@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.myapplication_co_aout.R;
 import com.example.myapplication_co_aout.Sql.Database_log;
 import com.example.myapplication_co_aout.model.Log;
-
+import com.example.myapplication_co_aout.model.Personne;
 
 
 public class Login extends AppCompatActivity {
@@ -19,8 +19,9 @@ public class Login extends AppCompatActivity {
     private static EditText password;
     private static Button login_btn;
     private static Button creat_new_account;
-    public Database_log db;
-    private Log log;
+    private Database_log db;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class Login extends AppCompatActivity {
             if(db.checkData(log)){
                 Toast.makeText(Login.this, "Votre code est correct", Toast.LENGTH_LONG).show();
                 db.close();
-                startActivity(new Intent(getApplicationContext(), Liste_souhaitActivity.class));
+                startActivity(new Intent(getApplicationContext(), display_liste_souhait.class));
             }
             else{
                 db.close();

@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Liste_souhaitActivity"></activity>
-        <activity android:name=".model.CustomAdapter" />
-        <activity android:name=".Listes_souhait" />
+        <activity android:name=".activity.sauver_liste_de_souhait"></activity>
+        <activity
+            android:name=".model.ListeSouhaitAdapter"
+            android:label="@string/title_activity_list_view_souhait_adapter"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ListeView_souhait" />
+        <activity android:name=".nom_liste_souhait" />
+        <activity android:name=".activity.display_liste_souhait" />
         <activity android:name=".activity.New_login" />
         <activity android:name=".activity.Login">
             <intent-filter>
