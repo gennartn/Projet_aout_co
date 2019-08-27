@@ -12,6 +12,7 @@ import com.example.myapplication_co_aout.R;
 import com.example.myapplication_co_aout.Sql.Database_log;
 import com.example.myapplication_co_aout.model.Log;
 import com.example.myapplication_co_aout.model.Personne;
+import com.example.myapplication_co_aout.model.Utilisateur;
 
 
 public class Login extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class Login extends AppCompatActivity {
     private static Button login_btn;
     private static Button creat_new_account;
     private Database_log db;
+    private static Utilisateur utilisateur;
 
 
 
@@ -72,7 +74,9 @@ public class Login extends AppCompatActivity {
             if(db.checkData(log)){
                 Toast.makeText(Login.this, "Votre code est correct", Toast.LENGTH_LONG).show();
                 db.close();
+
                 startActivity(new Intent(getApplicationContext(), display_liste_souhait.class));
+                utilisateur = new Utilisateur(username, password);
             }
             else{
                 db.close();
@@ -81,6 +85,9 @@ public class Login extends AppCompatActivity {
         }
 
 
+    }
+    public static Utilisateur getUtilisateurPrincipale(){
+        return utilisateur;
     }
 
 }

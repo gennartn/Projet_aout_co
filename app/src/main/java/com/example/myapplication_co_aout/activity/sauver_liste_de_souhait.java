@@ -44,7 +44,7 @@ public class sauver_liste_de_souhait extends AppCompatActivity {
                 db.open();
                 if(!l_souhait.equals("") && !l_destinataire.equals("") ){
                     Liste_souhait_model liste = new Liste_souhait_model(l_souhait, l_destinataire);
-                    if(db.addListSouhait(liste)!=-1){
+                    if(db.addListSouhait(liste, Login.getUtilisateurPrincipale().getUsername())!=-1){
                         Toast.makeText(sauver_liste_de_souhait.this, "Vorte liste de souhait a été créé", Toast.LENGTH_LONG).show();
                     }
                     else{

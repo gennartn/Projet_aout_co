@@ -8,7 +8,7 @@ import com.example.myapplication_co_aout.model.Article;
 
 public class MySQLite extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "database.db";
+    private static final String DATABASE_NAME = "database9.db";
     private static final int DATABASE_VERSION = 1;
     private static MySQLite Instance;
 

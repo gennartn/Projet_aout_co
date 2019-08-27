@@ -5,19 +5,25 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.myapplication_co_aout.activity.Login;
 import com.example.myapplication_co_aout.model.Liste_souhait_model;
 
 import java.util.ArrayList;
 
 public class Database_list_souhait  {
     private static final String TABLE_NAME = "liste_souhait";
+    public static final String USERNAME="username";
     public static final String NOM_LISTE_SOUHAIT="nom_list_souhait";
     public static final String NOM_PERSONNE="personne";
     public static final String CREATE_TABLE_LISTE_DE_SOUHAIT = "CREATE TABLE "+TABLE_NAME+
-            " (" +
-            " "+NOM_LISTE_SOUHAIT+" TEXT primary key," +
+            " (\n" +
+            " "+USERNAME+" TEXT,"+
+            " "+NOM_LISTE_SOUHAIT+" TEXT," +
             " "+NOM_PERSONNE+" TEXT" +
             ");";
+
+
+
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
     private SQLiteDatabase db;
 
@@ -40,18 +46,20 @@ public class Database_list_souhait  {
         db.close();
     }
 
-    public long addListSouhait(Liste_souhait_model l_souhait) {
+    public long addListSouhait(Liste_souhait_model l_souhait, String utilisateur) {
         // Ajout d'un enregistrement dans la table
 
         ContentValues values = new ContentValues();
+        values.put(USERNAME, utilisateur);
         values.put(NOM_LISTE_SOUHAIT ,l_souhait.getNom_liste());
         values.put(NOM_PERSONNE,l_souhait.getNom_personne());
+
 
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
     }
 
-    public int modListSouhait(Liste_souhait_model l_souhait) {
+    public int modListSouhait(Liste_souhait_model l_souhait, String utilisateur) {
         // modification d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la requête
 
@@ -59,8 +67,8 @@ public class Database_list_souhait  {
         values.put(NOM_LISTE_SOUHAIT, l_souhait.getNom_liste());
         values.put(NOM_PERSONNE, l_souhait.getNom_personne());
 
-        String where = NOM_LISTE_SOUHAIT+" = ?";
-        String[] whereArgs = {l_souhait.getNom_liste()+""};
+        String where = NOM_LISTE_SOUHAIT+" = ?"+ utilisateur +" = ?";
+        String[] whereArgs = {l_souhait.getNom_liste()+"", utilisateur+""};
 
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
@@ -75,12 +83,13 @@ public class Database_list_souhait  {
         return db.delete(TABLE_NAME, where, whereArgs);
     }
 
-    public Liste_souhait_model getListSouhait(String nom_list_souhait) {
+    public Liste_souhait_model getListSouhait(String nom_list_souhait, String utilisateur) {
         // Retourne l'animal dont l'id est passé en paramètre
 
         Liste_souhait_model a=new Liste_souhait_model("","");
 
-        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+NOM_LISTE_SOUHAIT+"="+nom_list_souhait, null);
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+NOM_LISTE_SOUHAIT+" = ? AND "+USERNAME+" = ?", new String[]{nom_list_souhait,utilisateur});
+
         if (c.moveToFirst()) {
             a.setNom_list(c.getString(c.getColumnIndex(NOM_LISTE_SOUHAIT)));
             a.setNom_personne(c.getString(c.getColumnIndex(NOM_PERSONNE)));
@@ -106,8 +115,9 @@ public class Database_list_souhait  {
         return list;
     }
 
-    public Cursor getListSouhaits() {
-        return db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
+    public Cursor getListSouhaits(String utilisateur) {
+        return db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+ USERNAME+ " = ?",new String[]{utilisateur});
+
     }
 
     /*public void getInfos(){

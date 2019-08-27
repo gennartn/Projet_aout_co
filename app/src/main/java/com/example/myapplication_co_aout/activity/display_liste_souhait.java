@@ -17,6 +17,7 @@ import com.example.myapplication_co_aout.model.Liste_souhait_model;
 import java.util.ArrayList;
 public class display_liste_souhait extends AppCompatActivity {
     private Database_list_souhait db;
+    private Login log;
 
 
 
@@ -56,22 +57,25 @@ public class display_liste_souhait extends AppCompatActivity {
 
     }
     private void ListView(){
-        Cursor cursor = db.getListSouhaits();
+        Cursor cursor = db.getListSouhaits(Login.getUtilisateurPrincipale().getUsername());
         ArrayList<Liste_souhait_model> souhaits = new ArrayList<>();
         if(cursor.getCount()==0){
             Toast.makeText(display_liste_souhait.this, "Il n'y a pas encore de liste de souhait", Toast.LENGTH_LONG).show();
         }
         else{
-
-            while(cursor.moveToNext()){
-                souhaits.add(new Liste_souhait_model(cursor.getString(0),cursor.getString(1)));
+            cursor.moveToFirst();
+            while(!cursor.isAfterLast()){
+                souhaits.add(new Liste_souhait_model(cursor.getString(1),cursor.getString(2)));
+                cursor.moveToNext();
             }
         }
-
+        Toast.makeText(display_liste_souhait.this, "la longueur de l'array est: "+souhaits.size(), Toast.LENGTH_LONG).show();
         ListeSouhaitAdapter adapter = new ListeSouhaitAdapter(this, R.layout.activity_list_view_souhait_adapter, souhaits);
         listViewSouhait.setAdapter(adapter);
 
     }
+
+
 
 }
 
