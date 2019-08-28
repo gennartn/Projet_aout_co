@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".model.ListeArticleAdapter"></activity>
+        <activity android:name=".activity.supp_liste_article"></activity>
+        <activity android:name=".activity.mod_liste_article" />
+        <activity android:name=".activity.sauver_liste_article" />
+        <activity android:name=".model.ListeArticleAdapter" />
         <activity android:name=".activity.infos_personne" />
         <activity android:name=".activity.display_liste_article" />
         <activity android:name=".activity.Put_souhait_personne" />

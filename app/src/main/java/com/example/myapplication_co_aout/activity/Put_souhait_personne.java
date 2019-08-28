@@ -16,6 +16,9 @@ public class Put_souhait_personne extends AppCompatActivity {
     private static Button button_personne;
     private static Button retour;
 
+    private static String souhait1;
+    private static String personne1;
+
 
 
     @Override
@@ -31,18 +34,17 @@ public class Put_souhait_personne extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        final String souhait1 = intent.getStringExtra("EXTRA_MESSAGE");
-        final String personne1 = intent.getStringExtra("EXTRA_MESSAGE1");
+        souhait1 = intent.getStringExtra("EXTRA_MESSAGE");
+        personne1 = intent.getStringExtra("EXTRA_MESSAGE1");
 
         button_souhait.setText(souhait1);
         button_personne.setText(personne1);
 
-
+        String salut = "";
         button_souhait.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),display_liste_article.class);
-                intent.putExtra("EXTRA", souhait1);
                 startActivity(intent);
             }
         });
@@ -50,7 +52,6 @@ public class Put_souhait_personne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(getApplicationContext(),infos_personne.class);
-                intent1.putExtra("ETRAT1",personne1);
                 startActivity(intent1);
             }
         });
@@ -61,5 +62,11 @@ public class Put_souhait_personne extends AppCompatActivity {
             }
         });
 
+    }
+    public static String getSouhait1(){
+        return souhait1;
+    }
+    public static String getPersonne1(){
+        return personne1;
     }
 }
