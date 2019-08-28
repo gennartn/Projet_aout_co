@@ -29,8 +29,8 @@ public class mod_liste_de_souhait extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mod_liste_de_souhait);
 
-        souhait = (EditText) findViewById(R.id.souhait);
-        personne = (EditText) findViewById(R.id.personne);
+        souhait = (EditText) findViewById(R.id.souhait12);
+        personne = (EditText) findViewById(R.id.personne13);
         nouveau_souhait = (EditText) findViewById(R.id.nouveau_souhait);
         nouvelle_personne= (EditText) findViewById(R.id.nouvelle_personne);
 

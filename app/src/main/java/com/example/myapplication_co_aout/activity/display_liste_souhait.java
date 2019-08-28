@@ -19,6 +19,7 @@ public class display_liste_souhait extends AppCompatActivity {
     private Database_list_souhait db;
     private Login log;
 
+    private ArrayList<Liste_souhait_model> souhaits;
 
 
     private static ListView listViewSouhait;
@@ -39,7 +40,7 @@ public class display_liste_souhait extends AppCompatActivity {
         creer = (Button) findViewById(R.id.creer);
         button_supprimer=(Button) findViewById((R.id.button_supprimer));
         button_modifier=(Button) findViewById(R.id.modifier);
-
+        souhaits = new ArrayList<>();
 
         db.open();
         ListView();
@@ -49,8 +50,17 @@ public class display_liste_souhait extends AppCompatActivity {
         listViewSouhait.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String text = listViewSouhait.getItemAtPosition(position).toString();
-                Toast.makeText(display_liste_souhait.this, text, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), Put_souhait_personne.class);
+
+                String souhait = souhaits.get(position).getNom_liste();
+                String personne = souhaits.get(position).getNom_personne();
+
+                intent.putExtra("EXTRA_MESSAGE", souhait);
+                intent.putExtra("EXTRA_MESSAGE1",personne);
+
+
+
+                startActivity(intent);
             }
         });
 
@@ -78,7 +88,7 @@ public class display_liste_souhait extends AppCompatActivity {
     }
     private void ListView(){
         Cursor cursor = db.getListSouhaits(Login.getUtilisateurPrincipale().getUsername());
-        ArrayList<Liste_souhait_model> souhaits = new ArrayList<>();
+
         if(cursor.getCount()==0){
             Toast.makeText(display_liste_souhait.this, "Il n'y a pas encore de liste de souhait", Toast.LENGTH_LONG).show();
         }

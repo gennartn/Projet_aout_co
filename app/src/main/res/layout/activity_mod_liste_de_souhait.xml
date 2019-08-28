@@ -46,7 +46,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Liste a modier:"
-        app:layout_constraintBottom_toTopOf="@+id/souhait"
+        app:layout_constraintBottom_toTopOf="@+id/souhait12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/souhait"
+        android:id="@+id/souhait12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -79,12 +79,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nom de la liste de Souhait"
-        app:layout_constraintBottom_toTopOf="@+id/personne"
+        app:layout_constraintBottom_toTopOf="@+id/personne13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/personne"
+        android:id="@+id/personne13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
