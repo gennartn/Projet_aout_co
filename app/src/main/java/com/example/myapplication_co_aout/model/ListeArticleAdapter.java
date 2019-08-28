@@ -12,36 +12,32 @@ import android.widget.TextView;
 import com.example.myapplication_co_aout.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ListeSouhaitAdapter extends ArrayAdapter<Liste_souhait_model> {
-
+public class ListeArticleAdapter extends ArrayAdapter<Liste_article> {
     private Context mContext;
     private int ressource;
 
 
-    public ListeSouhaitAdapter(Context context, int resource, ArrayList<Liste_souhait_model> objects) {
-        super(context, resource, objects);
+    public ListeArticleAdapter(Context context, int resource, ArrayList<Liste_article> objects) {
+       super(context,resource, objects);
         mContext = context;
         ressource = resource;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
-        String nom_souhaits = getItem(position).getNom_liste();
-        String nom_personne = getItem(position).getNom_personne();
+        String nom_article = getItem(position).getNom_liste();
 
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(ressource,parent,false);
 
-        TextView  nom_l_s = (TextView) convertView.findViewById(R.id.textView1);
-        TextView nom_p = (TextView) convertView.findViewById(R.id.textView2);
+        TextView nom_a = (TextView) convertView.findViewById(R.id.textViewAdapter);
 
-        nom_l_s.setText(nom_souhaits);
-        nom_p.setText(nom_personne);
+        nom_a.setText(nom_article);
 
         return convertView;
 
     }
+
 
 }

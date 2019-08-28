@@ -17,7 +17,7 @@ public class Database_list_souhait  {
     public static final String NOM_PERSONNE="personne";
     public static final String CREATE_TABLE_LISTE_DE_SOUHAIT = "CREATE TABLE "+TABLE_NAME+
             " (\n" +
-            " "+USERNAME+" TEXT,"+
+            " "+USERNAME+" TEXT ,"+
             " "+NOM_LISTE_SOUHAIT+" TEXT," +
             " "+NOM_PERSONNE+" TEXT" +
             ");";
@@ -44,6 +44,9 @@ public class Database_list_souhait  {
     {
         //on ferme l'accès à la BDD
         db.close();
+    }
+    public static String getTableName(){
+        return TABLE_NAME;
     }
 
     public long addListSouhait(Liste_souhait_model l_souhait, String utilisateur) {

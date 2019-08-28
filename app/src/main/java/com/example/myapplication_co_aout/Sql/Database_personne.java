@@ -38,6 +38,10 @@ public class Database_personne {
         db.close();
     }
 
+    public static String getTableName(){
+        return TABLE_NAME;
+    }
+
     public long addPersonne(Personne personne) {
         // Ajout d'un enregistrement dans la table
 

@@ -37,6 +37,9 @@ public class Database_log {
         //on ferme l'accès à la BDD
         db.close();
     }
+    public static String getTableName(){
+        return TABLE_NAME;
+    }
 
 
 

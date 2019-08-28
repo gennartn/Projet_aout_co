@@ -15,7 +15,7 @@ public class Database_article {
     public static final String PRIX="prix";
     public static final String CREATE_TABLE_ARTICLE = "CREATE TABLE "+TABLE_NAME+
             " (" +
-            " "+NOM_ARTICLE+" TEXT primary key," +
+            " "+NOM_ARTICLE+" TEXT," +
             " "+PRIX+" INTEGER" +
             ");";
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
@@ -37,6 +37,10 @@ public class Database_article {
     {
         //on ferme l'accès à la BDD
         db.close();
+    }
+
+    public static String getTableName(){
+        return TABLE_NAME;
     }
 
     public long addArticle(Article article) {
