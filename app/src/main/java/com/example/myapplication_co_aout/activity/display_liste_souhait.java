@@ -55,9 +55,14 @@ public class display_liste_souhait extends AppCompatActivity {
                 String souhait = souhaits.get(position).getNom_liste();
                 String personne = souhaits.get(position).getNom_personne();
 
-                intent.putExtra("EXTRA_MESSAGE", souhait);
-                intent.putExtra("EXTRA_MESSAGE1",personne);
+                Bundle bundle = new Bundle();
+                bundle.putString("SOUHAIT", souhait);
+                bundle.putString("PERSONNE",personne);
 
+                intent.putExtras(bundle);
+
+                //intent.putExtra("EXTRA_MESSAGE", souhait);
+                //intent.putExtra("EXTRA_MESSAGE1",personne);
 
 
                 startActivity(intent);

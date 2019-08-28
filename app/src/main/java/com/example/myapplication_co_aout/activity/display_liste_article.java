@@ -82,7 +82,10 @@ public class display_liste_article extends AppCompatActivity {
         retour1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Put_souhait_personne.class));
+                Intent intent = new Intent(getApplicationContext(),Put_souhait_personne.class);
+                /*intent.putExtra("EXTRA", Put_souhait_personne.getSouhait1());
+                intent.putExtra("EXTR1", Put_souhait_personne.getPersonne1());*/
+                startActivity(intent);
             }
         });
 

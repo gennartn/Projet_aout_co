@@ -75,4 +75,13 @@ public class Database_list_article {
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
+    public int supUnArticle(String article, String nom_souhait, String utilisateur){
+
+        String where = NOM_LISTE_SOUHAIT+" =? and "+ARTICLE+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {nom_souhait, article, utilisateur};
+
+        return db.delete(TABLE_NAME, where, whereArgs);
+
+    }
+
 }

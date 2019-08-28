@@ -31,16 +31,23 @@ public class Put_souhait_personne extends AppCompatActivity {
         button_personne = (Button) findViewById(R.id.button2);
         retour = (Button) findViewById(R.id.retour);
 
-
         Intent intent = getIntent();
 
-        souhait1 = intent.getStringExtra("EXTRA_MESSAGE");
-        personne1 = intent.getStringExtra("EXTRA_MESSAGE1");
+        Bundle bundle = intent.getExtras();
+        if(bundle!=null){
+            souhait1 = bundle.getString("SOUHAIT");
+            personne1 = bundle.getString("PERSONNE");
+        }
 
-        button_souhait.setText(souhait1);
-        button_personne.setText(personne1);
 
-        String salut = "";
+
+
+
+
+         button_souhait.setText(souhait1);
+         button_personne.setText(personne1);
+
+
         button_souhait.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
