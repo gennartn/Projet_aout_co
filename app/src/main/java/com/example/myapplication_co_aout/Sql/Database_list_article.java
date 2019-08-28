@@ -60,4 +60,19 @@ public class Database_list_article {
         return db.insert(TABLE_NAME,null,values);
     }
 
+    public int modListArticle(String article, String nouvelle_article, String nom_souhait, String utilisateur) {
+        // modification d'un enregistrement
+        // valeur de retour : (int) nombre de lignes affectées par la requête
+
+        ContentValues values = new ContentValues();
+        values.put(USERNAME, utilisateur);
+        values.put(NOM_LISTE_SOUHAIT, nom_souhait);
+        values.put(ARTICLE, nouvelle_article);
+
+        String where = NOM_LISTE_SOUHAIT+" = ? AND "+ USERNAME +" = ? AND "+ARTICLE+" = ?";
+        String[] whereArgs = {nom_souhait, utilisateur,article};
+
+        return db.update(TABLE_NAME, values, where, whereArgs);
+    }
+
 }

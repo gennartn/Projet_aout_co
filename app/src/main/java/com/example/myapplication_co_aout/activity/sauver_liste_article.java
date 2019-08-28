@@ -51,14 +51,14 @@ public class sauver_liste_article extends AppCompatActivity {
                 if(!article.equals("")){
                     Liste_article liste = new Liste_article(article);
                     if(db.addListArticle(liste,Put_souhait_personne.getSouhait1(),Login.getUtilisateurPrincipale().getUsername())!=-1){
-                        Toast.makeText(sauver_liste_article.this, "Vorte liste de souhait a été créé", Toast.LENGTH_LONG).show();
+                        Toast.makeText(sauver_liste_article.this, "Vorte article a été ajouté", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        Toast.makeText(sauver_liste_article.this, "Le nom de la liste existe déjà", Toast.LENGTH_LONG).show();
+                        Toast.makeText(sauver_liste_article.this, "Cette article existe déjà", Toast.LENGTH_LONG).show();
                     }
                 }
                 else{
-                    Toast.makeText(sauver_liste_article.this, "le nom de la liste ou le nom du destinataire est manquant", Toast.LENGTH_LONG).show();
+                    Toast.makeText(sauver_liste_article.this, "Tapez un nom pour ajouter un article", Toast.LENGTH_LONG).show();
                 }
                 db.close();
                 edit_nom_article.setText("");
