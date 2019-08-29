@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.myapplication_co_aout.R;
 
-public class display_article extends AppCompatActivity implements AdapterView.OnItemSelectedListener, AdapterView.OnItemClickListener{
+public class display_article extends AppCompatActivity {
 
 
     private static TextView nom_article;

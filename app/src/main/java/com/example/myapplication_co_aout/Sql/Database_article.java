@@ -11,6 +11,8 @@ import com.example.myapplication_co_aout.model.Article;
 public class Database_article {
 
     private static final String TABLE_NAME = "article";
+
+    public static final String USERNAME="username";
     public static final String NOM_ARTICLE="nom_article";
     public static final String PRIX="prix";
     public static final String MAGASIN="magasin";
@@ -18,9 +20,11 @@ public class Database_article {
 
     public static final String CREATE_TABLE_ARTICLE = "CREATE TABLE "+TABLE_NAME+
             " (" +
+            " "+USERNAME+" TEXT," +
             " "+NOM_ARTICLE+" TEXT," +
-            " "+PRIX+" INTEGER," +
-            " "+
+            " "+PRIX+" TEXT," +
+            " "+MAGASIN+" TEXT," +
+            " "+CATHEGORIE+" TEXT" +
             ");";
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
     private SQLiteDatabase db;

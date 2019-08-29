@@ -12,10 +12,18 @@ public class Database_personne {
     private static final String TABLE_NAME = "personne";
     public static final String PSEUDO="pseudo";
     public static final String NOM_PERSONNE="nom_personne";
+    public static final String NOM="nom";
+    public static final String PRENOM="prenom";
+    public static final String DATE="date";
+    public static final String CATHEGORIE="cathegorie";
     public static final String CREATE_TABLE_PERSONNE = "CREATE TABLE "+TABLE_NAME+
             " (" +
-            " "+NOM_PERSONNE+" TEXT primary key," +
-            " "+PSEUDO+" TEXT" +
+            " "+PSEUDO+" TEXT," +
+            " "+NOM_PERSONNE+" TEXT," +
+            " "+NOM+" TEXT," +
+            " "+PRENOM+" TEXT," +
+            " "+DATE+" TEXT," +
+            " "+CATHEGORIE+" TEXT" +
             ");";
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
     private SQLiteDatabase db;

@@ -2,15 +2,15 @@ package com.example.myapplication_co_aout.Sql;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.myapplication_co_aout.model.Article;
+import android.database.sqlite.SQLiteOpenHelper;
 
 public class MySQLite extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "database11.db";
+    private static final String DATABASE_NAME = "database18.db";
     private static final int DATABASE_VERSION = 1;
     private static MySQLite Instance;
+
 
     public static synchronized MySQLite getInstance(Context context) {
         if (Instance == null) {
@@ -20,15 +20,18 @@ public class MySQLite extends SQLiteOpenHelper {
     }
 
     private MySQLite(Context context) {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         // Création de la base de données
         // on exécute ici les requêtes de création des tables
         sqLiteDatabase.execSQL(Database_log.CREATE_TABLE_LOG);
-        sqLiteDatabase.execSQL(Database_article.CREATE_TABLE_ARTICLE); // création table "animal"
+        sqLiteDatabase.execSQL(Database_article.CREATE_TABLE_ARTICLE);
         sqLiteDatabase.execSQL(Database_list_souhait.CREATE_TABLE_LISTE_DE_SOUHAIT);
         sqLiteDatabase.execSQL(Database_personne.CREATE_TABLE_PERSONNE);
         sqLiteDatabase.execSQL(Database_list_article.CREATE_TABLE_LISTE_ARTICLE);
@@ -44,7 +47,9 @@ public class MySQLite extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Database_log.getTableName());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Database_personne.getTableName());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Database_article.getTableName());
+
         onCreate(sqLiteDatabase);
     }
+
 
 }
