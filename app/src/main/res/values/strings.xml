@@ -3,4 +3,14 @@
     <string name="title_activity_list_view_souhait_adapter">list_view_souhait_adapter</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string-array name="cathegorie_spin">
+        <item>Sport</item>
+        <item>Hobby</item>
+        <item>Ecole</item>
+        <item>Jardin</item>
+        <item>Electronique</item>
+        <item>musique</item>
+        <item>Vetement</item>
+    </string-array>
+
 </resources>

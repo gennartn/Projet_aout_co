@@ -13,10 +13,14 @@ public class Database_article {
     private static final String TABLE_NAME = "article";
     public static final String NOM_ARTICLE="nom_article";
     public static final String PRIX="prix";
+    public static final String MAGASIN="magasin";
+    public static final String CATHEGORIE="cathegorie";
+
     public static final String CREATE_TABLE_ARTICLE = "CREATE TABLE "+TABLE_NAME+
             " (" +
             " "+NOM_ARTICLE+" TEXT," +
-            " "+PRIX+" INTEGER" +
+            " "+PRIX+" INTEGER," +
+            " "+
             ");";
     private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
     private SQLiteDatabase db;
