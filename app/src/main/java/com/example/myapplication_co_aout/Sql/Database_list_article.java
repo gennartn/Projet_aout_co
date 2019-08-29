@@ -78,7 +78,7 @@ public class Database_list_article {
     public int supUnArticle(String article, String nom_souhait, String utilisateur){
 
         //suprimer les information de l'article
-        supInfosArticle(article,nom_souhait,utilisateur);
+        //supInfosArticle(article,nom_souhait,utilisateur);
 
         String where = NOM_LISTE_SOUHAIT+" =? and "+ARTICLE+" =? and "+USERNAME+ " =?";
         String[] whereArgs = {nom_souhait, article, utilisateur};
@@ -86,12 +86,14 @@ public class Database_list_article {
         return db.delete(TABLE_NAME, where, whereArgs);
 
     }
-    public int supInfosArticle(String article, String nom_souhait, String utilisateur){
+    public int suppArticle(String souhait, String utilisateur){
+        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {souhait, utilisateur};
+        //Database_list_article db_A = new Database_list_article(this);
 
-        String where = NOM_LISTE_SOUHAIT+" =? and "+ARTICLE+" =? and "+USERNAME+ " =?";
-        String[] whereArgs = {nom_souhait, article, utilisateur};
 
-        return db.delete(Database_article.getTableName(), where, whereArgs);
+        return db.delete(TABLE_NAME, where, whereArgs);
     }
+
 
 }

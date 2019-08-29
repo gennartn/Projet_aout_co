@@ -85,15 +85,23 @@ public class Database_article {
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
-    public int supInfosArticle(Article article, String utilisateur, String nom_souhait) {
+    public int supInfosUnArticle(String article, String utilisateur, String nom_souhait) {
         // suppression d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
         String where = ARTICLE+" = ? AND "+USERNAME+ " = ? AND "+NOM_LISTE_SOUHAIT+" = ?";
-        String[] whereArgs = {article.getNom_article(), utilisateur, nom_souhait};
+        String[] whereArgs = {article, utilisateur, nom_souhait};
 
         return db.delete(TABLE_NAME, where, whereArgs);
     }
+
+    public int suppInfosArticle(String souhait, String utilisateur){
+        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {souhait, utilisateur};
+
+        return db.delete(TABLE_NAME, where, whereArgs);
+    }
+
 
     public Article getArticle(String nom_article, String username, String nom_souhait) {
 

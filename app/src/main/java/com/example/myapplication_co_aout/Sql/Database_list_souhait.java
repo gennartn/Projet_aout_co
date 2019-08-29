@@ -101,10 +101,10 @@ public class Database_list_souhait  {
     public int supUnSouhait(String souhait, String personne, String utilisateur){
 
         //supprimer les infos de chaque article
-        suppInfosArticle(souhait,utilisateur);
+        //suppInfosArticle(souhait,utilisateur);
 
         //supprimer les articles associé a cette liste.
-        suppArticle(souhait, utilisateur);
+        //suppArticle(souhait, utilisateur);
 
         String where1 = NOM_LISTE_SOUHAIT+" =? and "+NOM_PERSONNE+" =? and "+USERNAME+ " =?";
         String[] whereArgs1 = {souhait, personne, utilisateur};
@@ -112,18 +112,7 @@ public class Database_list_souhait  {
         return db.delete(TABLE_NAME, where1, whereArgs1);
 
     }
-    public int suppArticle(String souhait, String utilisateur){
-        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
-        String[] whereArgs = {souhait, utilisateur};
 
-        return db.delete(Database_list_article.getTableName(), where, whereArgs);
-    }
-    public int suppInfosArticle(String souhait, String utilisateur){
-        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
-        String[] whereArgs = {souhait, utilisateur};
-
-        return db.delete(Database_article.getTableName(), where, whereArgs);
-    }
 
 
 

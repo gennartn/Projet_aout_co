@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication_co_aout.R;
+import com.example.myapplication_co_aout.Sql.Database_article;
 import com.example.myapplication_co_aout.Sql.Database_list_article;
 import com.example.myapplication_co_aout.Sql.Database_list_souhait;
 
@@ -21,6 +22,7 @@ public class supp_liste_article extends AppCompatActivity {
     private static Button retour;
 
     private Database_list_article db;
+    private Database_article db_infos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +35,17 @@ public class supp_liste_article extends AppCompatActivity {
         retour = (Button) findViewById(R.id.retour);
 
         db = new Database_list_article(getApplicationContext());
+        db_infos = new Database_article(getApplicationContext());
 
         supprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String article_s = supprimer_article.getText().toString();
                 db.open();
+                db_infos.open();
                 if(!article_s.equals("")){
 
+                    db_infos.supInfosUnArticle(article_s, Login.getUtilisateurPrincipale().getUsername(),Put_souhait_personne.getSouhait1());
                     if(db.supUnArticle(article_s,Put_souhait_personne.getSouhait1() ,Login.getUtilisateurPrincipale().getUsername())>0){
                         Toast.makeText(supp_liste_article.this, "L'article "+article_s+" a été supprimé", Toast.LENGTH_LONG).show();
                     }
@@ -51,6 +56,7 @@ public class supp_liste_article extends AppCompatActivity {
                 else{
                     Toast.makeText(supp_liste_article.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
                 }
+                db_infos.close();
                 db.close();
                 supprimer_article.setText("");
             }

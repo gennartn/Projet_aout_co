@@ -9,8 +9,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication_co_aout.R;
+import com.example.myapplication_co_aout.Sql.Database_article;
+import com.example.myapplication_co_aout.Sql.Database_list_article;
 import com.example.myapplication_co_aout.Sql.Database_list_souhait;
 import com.example.myapplication_co_aout.model.Liste_souhait_model;
+import com.example.myapplication_co_aout.model.Log;
 
 public class supp_liste_de_souhait extends AppCompatActivity {
 
@@ -22,6 +25,8 @@ public class supp_liste_de_souhait extends AppCompatActivity {
     private static Button retour;
 
     private Database_list_souhait db;
+    private Database_list_article db_article;
+    private Database_article db_infos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,10 @@ public class supp_liste_de_souhait extends AppCompatActivity {
         retour = (Button) findViewById(R.id.retour);
 
         db = new Database_list_souhait(getApplicationContext());
+
+        db_article = new Database_list_article(getApplicationContext());
+
+        db_infos = new Database_article(getApplicationContext());
 
         /*supprimer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +94,12 @@ public class supp_liste_de_souhait extends AppCompatActivity {
                 String personne = personne2.getText().toString();
                 String souhait = souhait2.getText().toString();
                 db.open();
+                db_infos.open();
+                db_article.open();
                 if(!souhait.equals("") && !personne.equals("")){
+
+                    db_infos.suppInfosArticle(souhait, Login.getUtilisateurPrincipale().getUsername());
+                    db_article.suppArticle(souhait, Login.getUtilisateurPrincipale().getUsername());
 
                     if(db.supUnSouhait(souhait, personne, Login.getUtilisateurPrincipale().getUsername())>0){
                         Toast.makeText(supp_liste_de_souhait.this, "Vorte liste de souhait  a été supprimé", Toast.LENGTH_LONG).show();
@@ -97,6 +111,8 @@ public class supp_liste_de_souhait extends AppCompatActivity {
                 else{
                     Toast.makeText(supp_liste_de_souhait.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
                 }
+                db_article.close();
+                db_infos.close();
                 db.close();
                 souhait2.setText("");
                 personne2.setText("");
