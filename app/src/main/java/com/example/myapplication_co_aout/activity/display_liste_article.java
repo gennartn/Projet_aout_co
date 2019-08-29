@@ -89,6 +89,8 @@ public class display_liste_article extends AppCompatActivity {
             }
         });
 
+        
+
 
     }
 

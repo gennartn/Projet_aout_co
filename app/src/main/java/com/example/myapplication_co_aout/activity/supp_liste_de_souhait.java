@@ -14,12 +14,10 @@ import com.example.myapplication_co_aout.model.Liste_souhait_model;
 
 public class supp_liste_de_souhait extends AppCompatActivity {
 
-    private static EditText souhait1;
-    private static EditText personne1;
+
     private static EditText souhait2;
     private static EditText personne2;
-    private static Button supprimer1;
-    private static Button supprimer2;
+
     private static Button supprimer3;
     private static Button retour;
 
@@ -30,19 +28,15 @@ public class supp_liste_de_souhait extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supp_liste_de_souhait);
 
-        souhait1 = (EditText) findViewById(R.id.souhait1);
-        personne1 = (EditText) findViewById(R.id.personne1);
         souhait2 = (EditText) findViewById(R.id.souhait2);
         personne2= (EditText) findViewById(R.id.personne2);
 
-        supprimer1 = (Button) findViewById(R.id.supprimer1);
-        supprimer2= (Button) findViewById(R.id.supprimer2);
         supprimer3 = (Button) findViewById(R.id.supprimer3);
         retour = (Button) findViewById(R.id.retour);
 
         db = new Database_list_souhait(getApplicationContext());
 
-        supprimer1.setOnClickListener(new View.OnClickListener() {
+        /*supprimer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String l_souhait = souhait1.getText().toString();
@@ -66,11 +60,12 @@ public class supp_liste_de_souhait extends AppCompatActivity {
         supprimer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String l_souhait = personne1.getText().toString();
+                String l_personne = personne1.getText().toString();
+                String
                 db.open();
-                if(!l_souhait.equals("")){
+                if(!l_personne.equals("")){
 
-                    if(db.supPersonneSouhait(l_souhait, Login.getUtilisateurPrincipale().getUsername())>0){
+                    if(db.supPersonneSouhait(l_personne, Login.getUtilisateurPrincipale().getUsername())>0){
                         Toast.makeText(supp_liste_de_souhait.this, "Vos listes de souhaits associés au nom de cette personne a été supprimé", Toast.LENGTH_LONG).show();
                     }
                     else{
@@ -83,7 +78,7 @@ public class supp_liste_de_souhait extends AppCompatActivity {
                 db.close();
                  personne1.setText("");
             }
-        });
+        });*/
         supprimer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +98,8 @@ public class supp_liste_de_souhait extends AppCompatActivity {
                     Toast.makeText(supp_liste_de_souhait.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
                 }
                 db.close();
-                souhait1.setText("");
+                souhait2.setText("");
+                personne2.setText("");
             }
         });
 

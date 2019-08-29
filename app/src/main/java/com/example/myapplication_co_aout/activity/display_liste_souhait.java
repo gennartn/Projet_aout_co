@@ -95,7 +95,7 @@ public class display_liste_souhait extends AppCompatActivity {
         Cursor cursor = db.getListSouhaits(Login.getUtilisateurPrincipale().getUsername());
 
         if(cursor.getCount()==0){
-            Toast.makeText(display_liste_souhait.this, "Il n'y a pas encore de liste de souhait", Toast.LENGTH_LONG).show();
+            Toast.makeText(display_liste_souhait.this, "Il n'y a pas de liste de souhait", Toast.LENGTH_LONG).show();
         }
         else{
             cursor.moveToFirst();

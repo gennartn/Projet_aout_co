@@ -77,30 +77,45 @@ public class Database_list_souhait  {
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
-    public int supListSouhait(String souhait, String utilisateur) {
-        // suppression d'un enregistrement
-        // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
+   /* public int supListSouhait(String souhait, String utilisateur) {
 
-        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
-        String[] whereArgs = {souhait, utilisateur};
+        //supprimer les articles associé a cette liste
+        suppArticle(souhait, utilisateur);
 
-        return db.delete(TABLE_NAME, where, whereArgs);
+        String where1 = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
+        String[] whereArgs1 = {souhait, utilisateur};
+
+        return db.delete(TABLE_NAME, where1, whereArgs1);
     }
-    public  int supPersonneSouhait(String personne, String utilisateur){
+    public  int supPersonneSouhait(String personne, String utilisateur, String souhait){
+
+        //supprimer les articles associé a cette liste
+        suppArticle(souhait, utilisateur);
 
         String where = NOM_PERSONNE+" =? and "+USERNAME+ " =?";
         String[] whereArgs = {personne, utilisateur};
 
         return db.delete(TABLE_NAME, where, whereArgs);
-    }
+    }*/
     public int supUnSouhait(String souhait, String personne, String utilisateur){
 
-        String where = NOM_LISTE_SOUHAIT+" =? and "+NOM_PERSONNE+" =? and "+USERNAME+ " =?";
-        String[] whereArgs = {souhait, personne, utilisateur};
+        //supprimer les articles associé a cette liste.
+        suppArticle(souhait, utilisateur);
 
-        return db.delete(TABLE_NAME, where, whereArgs);
+        String where1 = NOM_LISTE_SOUHAIT+" =? and "+NOM_PERSONNE+" =? and "+USERNAME+ " =?";
+        String[] whereArgs1 = {souhait, personne, utilisateur};
+
+        return db.delete(TABLE_NAME, where1, whereArgs1);
 
     }
+    public int suppArticle(String souhait, String utilisateur){
+        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {souhait, utilisateur};
+
+        return db.delete(Database_list_article.getTableName(), where, whereArgs);
+    }
+
+
 
     public Liste_souhait_model getListSouhait(String nom_list_souhait, String utilisateur) {
         // Retourne l'animal dont l'id est passé en paramètre
