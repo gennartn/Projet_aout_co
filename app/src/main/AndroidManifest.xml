@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".model.cathegorie_article_deroulant"></activity>
+        <activity android:name=".activity.SpinnerArticle"></activity>
+        <activity android:name=".infos_article2" />
+        <activity android:name=".model.cathegorie_article_deroulant" />
         <activity android:name=".activity.infos_article" />
         <activity android:name=".activity.display_article" />
         <activity android:name=".activity.supp_liste_article" />

@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "Votre code est correct", Toast.LENGTH_LONG).show();
                 db.close();
 
-                startActivity(new Intent(getApplicationContext(), display_liste_souhait.class));
+                startActivity(new Intent(getApplicationContext(), SpinnerArticle.class));
                 utilisateur = new Utilisateur(username, password);
             }
             else{

@@ -27,11 +27,11 @@ public class display_article extends AppCompatActivity {
     private static EditText edit_magasin;
     private static TextView view_magain;
 
-    private static Spinner spinner;
+    //private static SpinnerArticle spinner;
 
     private String prix;
     private String magasin;
-    private String cathegorie;
+    //private String cathegorie;
 
     private String article;
 
@@ -81,8 +81,8 @@ public class display_article extends AppCompatActivity {
         });
 
 
-
-        Spinner spinner = findViewById(R.id.spinner);
+/*
+        SpinnerArticle spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.cathegorie_spin,R.layout.activity_display_article);
         adapter.setDropDownViewResource(R.layout.activity_display_article);
         spinner.setAdapter(adapter);
@@ -93,7 +93,7 @@ public class display_article extends AppCompatActivity {
                 cathegorie = parent.getItemAtPosition(position).toString();
                 Toast.makeText(parent.getContext(),cathegorie, Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
     }
