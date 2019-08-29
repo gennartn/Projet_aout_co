@@ -9,11 +9,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-public class SpinnerAdapterArticle extends ArrayAdapter<SpinnerDataArticle> {
+public class SpinnerAdapterArticle extends ArrayAdapter<String> {
     Context context;
-    ArrayList<SpinnerDataArticle> arraylist;
+    ArrayList<String> arraylist;
 
-    public SpinnerAdapterArticle( Context context, int resource, ArrayList<SpinnerDataArticle> objects) {
+    public SpinnerAdapterArticle( Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
 
         this.context=context;
@@ -26,7 +26,7 @@ public class SpinnerAdapterArticle extends ArrayAdapter<SpinnerDataArticle> {
     }
 
     @Override
-    public SpinnerDataArticle getItem(int position){
+    public String getItem(int position){
         return arraylist.get(position);
     }
 
@@ -38,46 +38,19 @@ public class SpinnerAdapterArticle extends ArrayAdapter<SpinnerDataArticle> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         TextView textView = new TextView(context);
-        if(arraylist.get(position).getEmail()==null){
-            textView.setText(arraylist.get(position).getName());
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            textView.setLayoutParams(params);
-            textView.setTextSize(10);
-            textView.setPadding(10,10,10,10);
-            return textView;
-        }
-        else{
-            textView.setText(arraylist.get(position).getName()+" "+arraylist.get(position).getAge());
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            textView.setLayoutParams(params);
-            textView.setLayoutParams(params);
-            textView.setTextSize(10);
-            textView.setPadding(10,10,10,10);
-            return textView;
-        }
 
+        textView.setText(arraylist.get(position));
+
+        return textView;
     }
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent){
         TextView textView = new TextView(context);
-        if(arraylist.get(position).getEmail()==null){
-            textView.setText(arraylist.get(position).getName());
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            textView.setLayoutParams(params);
-            textView.setLayoutParams(params);
-            textView.setTextSize(10);
-            textView.setPadding(10,10,10,10);
-            return textView;
-        }
-        else {
-            textView.setText(arraylist.get(position).getName() + " " + arraylist.get(position).getAge());
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            textView.setLayoutParams(params);
-            textView.setLayoutParams(params);
-            textView.setTextSize(10);
-            textView.setPadding(10, 10, 10, 10);
-            return textView;
-        }
+        textView.setText(arraylist.get(position));
+
+        return textView;
+
+
     }
 
 

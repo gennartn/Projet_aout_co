@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.myapplication_co_aout.activity.Login;
+import com.example.myapplication_co_aout.model.Article;
 import com.example.myapplication_co_aout.model.Liste_souhait_model;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Database_list_souhait  {
     private static final String TABLE_NAME = "liste_souhait";
     public static final String USERNAME="username";
     public static final String NOM_LISTE_SOUHAIT="nom_list_souhait";
-    public static final String NOM_PERSONNE="personne";
+    public static final String NOM_PERSONNE="nom_personne";
     public static final String CREATE_TABLE_LISTE_DE_SOUHAIT = "CREATE TABLE "+TABLE_NAME+
             " (\n" +
             " "+USERNAME+" TEXT ,"+
@@ -99,6 +100,9 @@ public class Database_list_souhait  {
     }*/
     public int supUnSouhait(String souhait, String personne, String utilisateur){
 
+        //supprimer les infos de chaque article
+        suppInfosArticle(souhait,utilisateur);
+
         //supprimer les articles associé a cette liste.
         suppArticle(souhait, utilisateur);
 
@@ -114,6 +118,13 @@ public class Database_list_souhait  {
 
         return db.delete(Database_list_article.getTableName(), where, whereArgs);
     }
+    public int suppInfosArticle(String souhait, String utilisateur){
+        String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {souhait, utilisateur};
+
+        return db.delete(Database_article.getTableName(), where, whereArgs);
+    }
+
 
 
 

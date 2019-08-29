@@ -13,8 +13,8 @@ public class Database_article {
     private static final String TABLE_NAME = "article";
 
     public static final String USERNAME="username";
-    public static final String NOM_SOUHAIT="nom_souhait";
-    public static final String NOM_ARTICLE="nom_article";
+    public static final String NOM_LISTE_SOUHAIT="nom_liste_souhait";
+    public static final String ARTICLE="article";
     public static final String PRIX="prix";
     public static final String MAGASIN="magasin";
     public static final String CATHEGORIE="cathegorie";
@@ -22,8 +22,8 @@ public class Database_article {
     public static final String CREATE_TABLE_ARTICLE = "CREATE TABLE "+TABLE_NAME+
             " (" +
             " "+USERNAME+" TEXT," +
-            " "+NOM_SOUHAIT+" TEXT," +
-            " "+NOM_ARTICLE+" TEXT," +
+            " "+NOM_LISTE_SOUHAIT+" TEXT," +
+            " "+ARTICLE+" TEXT," +
             " "+PRIX+" TEXT," +
             " "+MAGASIN+" TEXT," +
             " "+CATHEGORIE+" TEXT" +
@@ -57,8 +57,8 @@ public class Database_article {
 
         ContentValues values = new ContentValues();
         values.put(USERNAME ,username);
-        values.put(NOM_SOUHAIT ,nom_souhait);
-        values.put(NOM_ARTICLE ,article.getNom_article());
+        values.put(NOM_LISTE_SOUHAIT ,nom_souhait);
+        values.put(ARTICLE ,article.getNom_article());
         values.put(PRIX,article.getPrix_article());
         values.put(MAGASIN,article.getNom_magasin());
         values.put(CATHEGORIE,article.getNom_cathegorie());
@@ -73,13 +73,13 @@ public class Database_article {
 
         ContentValues values = new ContentValues();
         values.put(USERNAME ,utilisateur);
-        values.put(NOM_SOUHAIT ,nom_souhait);
-        values.put(NOM_ARTICLE ,nouveau_article.getNom_article());
+        values.put(NOM_LISTE_SOUHAIT ,nom_souhait);
+        values.put(ARTICLE ,nouveau_article.getNom_article());
         values.put(PRIX,nouveau_article.getPrix_article());
         values.put(MAGASIN,nouveau_article.getNom_magasin());
         values.put(CATHEGORIE,nouveau_article.getNom_cathegorie());
 
-        String where = NOM_ARTICLE+" = ? AND "+USERNAME+" = ? AND "+PRIX+" = ? AND "+MAGASIN+" = ? AND "+CATHEGORIE+" = ? AND "+NOM_SOUHAIT+" = ?";
+        String where = ARTICLE+" = ? AND "+USERNAME+" = ? AND "+PRIX+" = ? AND "+MAGASIN+" = ? AND "+CATHEGORIE+" = ? AND "+NOM_LISTE_SOUHAIT+" = ?";
         String[] whereArgs = {article.getNom_article(), utilisateur, article.getPrix_article(), article.getNom_magasin(), article.getNom_cathegorie(), nom_souhait};
 
         return db.update(TABLE_NAME, values, where, whereArgs);
@@ -89,7 +89,7 @@ public class Database_article {
         // suppression d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
-        String where = NOM_ARTICLE+" = ? AND "+USERNAME+ " = ? AND "+NOM_SOUHAIT+" = ?";
+        String where = ARTICLE+" = ? AND "+USERNAME+ " = ? AND "+NOM_LISTE_SOUHAIT+" = ?";
         String[] whereArgs = {article.getNom_article(), utilisateur, nom_souhait};
 
         return db.delete(TABLE_NAME, where, whereArgs);
@@ -99,9 +99,12 @@ public class Database_article {
 
         Article a=new Article("","","","");
 
-        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+NOM_ARTICLE+"= ? AND "+USERNAME+" = ? AND "+NOM_SOUHAIT+" = ?", new String[]{nom_article,username,nom_souhait});
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+ARTICLE+"= ? AND "+USERNAME+" = ? AND "+NOM_LISTE_SOUHAIT+" = ?", new String[]{nom_article,username,nom_souhait});
+        if(c.getCount()==0){
+            return null;
+        }
         if (c.moveToFirst()) {
-            a.setNom_Article(c.getString(c.getColumnIndex(NOM_ARTICLE)));
+            a.setNom_Article(c.getString(c.getColumnIndex(ARTICLE)));
             a.setPrix_article(c.getString(c.getColumnIndex(PRIX)));
             a.setNom_magasin(c.getString(c.getColumnIndex(MAGASIN)));
             a.setNom_cathegorie(c.getString(c.getColumnIndex(CATHEGORIE)));
@@ -109,6 +112,14 @@ public class Database_article {
         }
 
         return a;
+    }
+
+    public boolean articlePresent(String nom_article, String nom_souhait, String username){
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+ARTICLE+"= ? AND "+USERNAME+" = ? AND "+NOM_LISTE_SOUHAIT+" = ?", new String[]{nom_article,username,nom_souhait});
+        if(c.getCount()==0){
+            return false;
+        }
+        return true;
     }
 
     public Cursor getInfosArticle() {

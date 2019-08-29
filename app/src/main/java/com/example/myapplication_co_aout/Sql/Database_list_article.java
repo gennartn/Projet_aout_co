@@ -14,7 +14,7 @@ public class Database_list_article {
     private static final String TABLE_NAME = "liste_article";
     public static final String USERNAME = "username";
     public static final String NOM_LISTE_SOUHAIT="nom_list_souhait";
-    public static final String ARTICLE="article_colonne";
+    public static final String ARTICLE="article";
     public static final String CREATE_TABLE_LISTE_ARTICLE= "CREATE TABLE "+TABLE_NAME+
             " (\n" +
             " "+USERNAME+ " TEXT,"+
@@ -77,11 +77,21 @@ public class Database_list_article {
 
     public int supUnArticle(String article, String nom_souhait, String utilisateur){
 
+        //suprimer les information de l'article
+        supInfosArticle(article,nom_souhait,utilisateur);
+
         String where = NOM_LISTE_SOUHAIT+" =? and "+ARTICLE+" =? and "+USERNAME+ " =?";
         String[] whereArgs = {nom_souhait, article, utilisateur};
 
         return db.delete(TABLE_NAME, where, whereArgs);
 
+    }
+    public int supInfosArticle(String article, String nom_souhait, String utilisateur){
+
+        String where = NOM_LISTE_SOUHAIT+" =? and "+ARTICLE+" =? and "+USERNAME+ " =?";
+        String[] whereArgs = {nom_souhait, article, utilisateur};
+
+        return db.delete(Database_article.getTableName(), where, whereArgs);
     }
 
 }

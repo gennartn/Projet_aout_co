@@ -33,7 +33,7 @@ public class Article {
         return magasin;
     }
     public void setNom_magasin(String nom_magasin) {
-        this.magasin = magasin;
+        this.magasin = nom_magasin;
     }
     public String getNom_cathegorie() {
         return cathegorie;

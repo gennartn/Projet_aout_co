@@ -10,7 +10,7 @@ import com.example.myapplication_co_aout.model.Personne;
 
 public class Database_personne {
     private static final String TABLE_NAME = "personne";
-    public static final String PSEUDO="pseudo";
+    public static final String USERNAME="username";
     public static final String NOM_PERSONNE="nom_personne";
     public static final String NOM="nom";
     public static final String PRENOM="prenom";
@@ -18,7 +18,7 @@ public class Database_personne {
     public static final String CATHEGORIE="cathegorie";
     public static final String CREATE_TABLE_PERSONNE = "CREATE TABLE "+TABLE_NAME+
             " (" +
-            " "+PSEUDO+" TEXT," +
+            " "+USERNAME+" TEXT," +
             " "+NOM_PERSONNE+" TEXT," +
             " "+NOM+" TEXT," +
             " "+PRENOM+" TEXT," +
@@ -55,7 +55,7 @@ public class Database_personne {
 
         ContentValues values = new ContentValues();
         values.put(NOM_PERSONNE ,personne.getNom_Personne());
-        values.put(PSEUDO,personne.getPseudo());
+        values.put(USERNAME,personne.getPseudo());
 
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
@@ -67,7 +67,7 @@ public class Database_personne {
 
         ContentValues values = new ContentValues();
         values.put(NOM_PERSONNE, personne.getNom_Personne());
-        values.put(PSEUDO, personne.getPseudo());
+        values.put(USERNAME, personne.getPseudo());
 
         String where = NOM_PERSONNE+" = ?";
         String[] whereArgs = {personne.getNom_Personne()+""};
@@ -93,7 +93,7 @@ public class Database_personne {
         Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+NOM_PERSONNE+"="+nom_personne, null);
         if (c.moveToFirst()) {
             a.setNom_personne(c.getString(c.getColumnIndex(NOM_PERSONNE)));
-            a.setPseudo(c.getString(c.getColumnIndex(PSEUDO)));
+            a.setPseudo(c.getString(c.getColumnIndex(USERNAME)));
             c.close();
         }
 
