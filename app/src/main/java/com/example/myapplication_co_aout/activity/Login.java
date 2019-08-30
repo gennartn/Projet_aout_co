@@ -63,8 +63,8 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Check_Data_Base(String username, String password){
-        Log log = new Log(username, password);
+    public void Check_Data_Base(String username1, String password1){
+        Log log = new Log(username1, password1);
         db.open();
         if(db == null){
             db.close();
@@ -76,7 +76,9 @@ public class Login extends AppCompatActivity {
                 db.close();
 
                 startActivity(new Intent(getApplicationContext(), display_liste_souhait.class));
-                utilisateur = new Utilisateur(username, password);
+                utilisateur = new Utilisateur(username1, password1);
+                username.setText("");
+                password.setText("");
             }
             else{
                 db.close();

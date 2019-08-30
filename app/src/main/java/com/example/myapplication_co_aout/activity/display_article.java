@@ -104,6 +104,7 @@ public class display_article extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(display_article.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
+                    edit_prix.setText("Prix:");
                 }
 
             }
@@ -120,6 +121,7 @@ public class display_article extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(display_article.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
+                    edit_magasin.setText("Nom du magasin:");
                 }
 
             }

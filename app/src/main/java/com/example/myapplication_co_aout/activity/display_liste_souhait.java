@@ -26,7 +26,7 @@ public class display_liste_souhait extends AppCompatActivity {
     private static Button creer;
     private static Button button_supprimer;
     private static Button button_modifier;
-
+    private static Button deconnection;
 
 
     @Override
@@ -40,6 +40,7 @@ public class display_liste_souhait extends AppCompatActivity {
         creer = (Button) findViewById(R.id.creer);
         button_supprimer=(Button) findViewById((R.id.button_supprimer));
         button_modifier=(Button) findViewById(R.id.modifier);
+        deconnection = (Button) findViewById(R.id.deconnection);
         souhaits = new ArrayList<>();
 
         db.open();
@@ -87,6 +88,12 @@ public class display_liste_souhait extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),mod_liste_de_souhait.class));
+            }
+        });
+        deconnection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Login.class));
             }
         });
 

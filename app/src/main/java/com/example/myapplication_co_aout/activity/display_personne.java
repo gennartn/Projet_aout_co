@@ -103,6 +103,7 @@ public class display_personne extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(display_personne.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
+                    edit_nom.setText("Nom:");
                 }
 
             }
@@ -115,10 +116,11 @@ public class display_personne extends AppCompatActivity {
                 if(!temp.equals("")){
                     nouvelle_personne.setPrenom(temp);
                     view_prenom.setText(nouvelle_personne.getPrenom());
-                    edit_nom.setText("Prenom:");
+                    edit_prenom.setText("Prenom:");
                 }
                 else{
                     Toast.makeText(display_personne.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
+                    edit_prenom.setText("Prenom:");
                 }
 
             }
@@ -135,6 +137,7 @@ public class display_personne extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(display_personne.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
+                    edit_date.setText("Date de naissance:");
                 }
 
             }
@@ -173,7 +176,7 @@ public class display_personne extends AppCompatActivity {
                     db.modPersonne(personne,nouvelle_personne, username, nom_personne);
                 }
                 else{
-                    db.addPersonne(personne,username,nom_personne);
+                    db.addPersonne(nouvelle_personne,username,nom_personne);
                 }
                 Toast.makeText(display_personne.this, "Vos informations ont été sauvées", Toast.LENGTH_LONG).show();
                 db.close();
@@ -199,7 +202,7 @@ public class display_personne extends AppCompatActivity {
 
                 }
                 else{
-                    view_spinner.setText("Milieu social:");
+                    view_spinner.setText("Cathégorie:");
                 }
 
             }
