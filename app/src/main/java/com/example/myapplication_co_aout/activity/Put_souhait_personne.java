@@ -15,6 +15,8 @@ public class Put_souhait_personne extends AppCompatActivity {
     private static Button button_personne;
     private static Button retour;
 
+    private static Button google_button;
+
     private static String souhait1;
     private static String personne1;
 
@@ -29,6 +31,7 @@ public class Put_souhait_personne extends AppCompatActivity {
         button_souhait = (Button) findViewById(R.id.button);
         button_personne = (Button) findViewById(R.id.button2);
         retour = (Button) findViewById(R.id.retour);
+        google_button = (Button) findViewById(R.id.google_button);
 
         Intent intent = getIntent();
 
@@ -61,12 +64,21 @@ public class Put_souhait_personne extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        google_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Url_recherche.class));
+            }
+        });
         retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),display_liste_souhait.class));
             }
         });
+
+
 
     }
     public static String getSouhait1(){
