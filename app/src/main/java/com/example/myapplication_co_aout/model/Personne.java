@@ -2,26 +2,46 @@ package com.example.myapplication_co_aout.model;
 
 public class Personne {
 
-    private String pseudo;
-    private String nom_personne;
 
-    // Constructeur
-    public Personne(String pseudo,String nom_personne) {
-        this.pseudo=pseudo;
-        this.nom_personne=nom_personne;
-    }
+    private String nom;
+    private String prenom;
+    private String date;
+    private String cathegorie;
 
 
-    public String getPseudo() {
-        return pseudo;
+    public Personne(String nom,String prenom, String date, String cathegorie) {
+        this.nom=nom;
+        this.prenom=prenom;
+        this.date=date;
+        this.cathegorie=cathegorie;
     }
-    public void setPseudo(String pseudo) {
-        this.pseudo= pseudo;
+
+
+
+    public String getNom() {
+        return nom;
     }
-    public String getNom_Personne() {
-        return nom_personne;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
-    public void setNom_personne(String nom_personne) {
-        this.nom_personne = nom_personne;
+    public String getPrenom() {
+        return prenom;
     }
+    public void setPrenom(String prenom) {
+        this.prenom= prenom;
+    }
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
+    public String getCathegorie() {
+        return cathegorie;
+    }
+    public void setCathegorie(String cathegorie) {
+        this.cathegorie = cathegorie;
+    }
+
+
 }

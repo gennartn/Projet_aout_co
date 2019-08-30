@@ -42,10 +42,6 @@ public class display_article extends AppCompatActivity {
     private ArrayList<String> arraylist = new ArrayList<>();
 
 
-    private String prix_string;
-    private String magasin_string;
-    private String cathegorie_string;
-
     private String article_string;
 
     private Article article;

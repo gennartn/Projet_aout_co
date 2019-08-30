@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.myapplication_co_aout.R;
 
@@ -58,7 +57,7 @@ public class Put_souhait_personne extends AppCompatActivity {
         button_personne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(getApplicationContext(),infos_personne.class);
+                Intent intent1 = new Intent(getApplicationContext(), display_personne.class);
                 startActivity(intent1);
             }
         });

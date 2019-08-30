@@ -12,6 +12,7 @@ import com.example.myapplication_co_aout.R;
 import com.example.myapplication_co_aout.Sql.Database_article;
 import com.example.myapplication_co_aout.Sql.Database_list_article;
 import com.example.myapplication_co_aout.Sql.Database_list_souhait;
+import com.example.myapplication_co_aout.Sql.Database_personne;
 import com.example.myapplication_co_aout.model.Liste_souhait_model;
 import com.example.myapplication_co_aout.model.Log;
 
@@ -27,6 +28,7 @@ public class supp_liste_de_souhait extends AppCompatActivity {
     private Database_list_souhait db;
     private Database_list_article db_article;
     private Database_article db_infos;
+    private Database_personne db_pers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,61 +47,24 @@ public class supp_liste_de_souhait extends AppCompatActivity {
 
         db_infos = new Database_article(getApplicationContext());
 
-        /*supprimer1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String l_souhait = souhait1.getText().toString();
-                db.open();
-                if(!l_souhait.equals("")){
+        db_pers = new Database_personne(getApplicationContext());
 
-                    if(db.supListSouhait(l_souhait, Login.getUtilisateurPrincipale().getUsername())>0){
-                        Toast.makeText(supp_liste_de_souhait.this, "Vos listes de souhaits associé à ce nom ont été supprimé", Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        Toast.makeText(supp_liste_de_souhait.this, "Il n'y a rien a supprimer à ce nom", Toast.LENGTH_LONG).show();
-                    }
-                }
-                else{
-                    Toast.makeText(supp_liste_de_souhait.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
-                }
-                db.close();
-                souhait1.setText("");
-            }
-        });
-        supprimer2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String l_personne = personne1.getText().toString();
-                String
-                db.open();
-                if(!l_personne.equals("")){
 
-                    if(db.supPersonneSouhait(l_personne, Login.getUtilisateurPrincipale().getUsername())>0){
-                        Toast.makeText(supp_liste_de_souhait.this, "Vos listes de souhaits associés au nom de cette personne a été supprimé", Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        Toast.makeText(supp_liste_de_souhait.this, "Il n'y a rien a supprimer à ce nom", Toast.LENGTH_LONG).show();
-                    }
-                }
-                else{
-                    Toast.makeText(supp_liste_de_souhait.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
-                }
-                db.close();
-                 personne1.setText("");
-            }
-        });*/
         supprimer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String personne = personne2.getText().toString();
                 String souhait = souhait2.getText().toString();
+                String username = Login.getUtilisateurPrincipale().getUsername();
                 db.open();
                 db_infos.open();
                 db_article.open();
+                db_pers.open();
                 if(!souhait.equals("") && !personne.equals("")){
 
-                    db_infos.suppInfosArticle(souhait, Login.getUtilisateurPrincipale().getUsername());
-                    db_article.suppArticle(souhait, Login.getUtilisateurPrincipale().getUsername());
+                    db_infos.suppInfosArticle(souhait, username);
+                    db_article.suppArticle(souhait, username);
+                    db_pers.supPersonne(personne, username);
 
                     if(db.supUnSouhait(souhait, personne, Login.getUtilisateurPrincipale().getUsername())>0){
                         Toast.makeText(supp_liste_de_souhait.this, "Vorte liste de souhait  a été supprimé", Toast.LENGTH_LONG).show();
@@ -111,6 +76,7 @@ public class supp_liste_de_souhait extends AppCompatActivity {
                 else{
                     Toast.makeText(supp_liste_de_souhait.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
                 }
+                db_pers.close();
                 db_article.close();
                 db_infos.close();
                 db.close();

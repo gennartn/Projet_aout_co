@@ -50,54 +50,74 @@ public class Database_personne {
         return TABLE_NAME;
     }
 
-    public long addPersonne(Personne personne) {
+    public long addPersonne(Personne personne, String username, String nom_personne) {
         // Ajout d'un enregistrement dans la table
 
         ContentValues values = new ContentValues();
-        values.put(NOM_PERSONNE ,personne.getNom_Personne());
-        values.put(USERNAME,personne.getPseudo());
+        values.put(USERNAME ,username);
+        values.put(NOM_PERSONNE,nom_personne);
+        values.put(NOM ,personne.getNom());
+        values.put(PRENOM,personne.getPrenom());
+        values.put(DATE ,personne.getDate());
+        values.put(CATHEGORIE,personne.getCathegorie());
 
         // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
     }
 
-    public int modPersonne(Personne personne) {
+    public int modPersonne(Personne personne, Personne nouvelle_personne, String username, String nom_personne) {
         // modification d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la requête
 
         ContentValues values = new ContentValues();
-        values.put(NOM_PERSONNE, personne.getNom_Personne());
-        values.put(USERNAME, personne.getPseudo());
+        values.put(USERNAME ,username);
+        values.put(NOM_PERSONNE,nom_personne);
+        values.put(NOM ,nouvelle_personne.getNom());
+        values.put(PRENOM,nouvelle_personne.getPrenom());
+        values.put(DATE ,nouvelle_personne.getDate());
+        values.put(CATHEGORIE,nouvelle_personne.getCathegorie());
 
-        String where = NOM_PERSONNE+" = ?";
-        String[] whereArgs = {personne.getNom_Personne()+""};
+        String where = NOM_PERSONNE+" = ? AND "+USERNAME+" = ? AND "+NOM+" = ? AND "+PRENOM+" = ? AND "+DATE+" = ? AND "+CATHEGORIE+ " = ?";
+        String[] whereArgs = {nom_personne,username,personne.getNom(),personne.getPrenom(),personne.getDate(),personne.getCathegorie()};
 
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
-    public int supPersonne(Personne personne) {
+    public int supPersonne(String username, String nom_personne) {
         // suppression d'un enregistrement
         // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
-        String where = NOM_PERSONNE+" = ?";
-        String[] whereArgs = {personne.getNom_Personne()+""};
+        String where = NOM_PERSONNE+" = ? AND "+USERNAME+" = ?";
+        String[] whereArgs = {username, nom_personne};
 
         return db.delete(TABLE_NAME, where, whereArgs);
     }
 
-    public Personne getPersonne(String nom_personne) {
-        // Retourne l'animal dont l'id est passé en paramètre
+    public Personne getInfosPersonne(String username, String nom_personne) {
 
-        Personne a=new Personne("","");
+        Personne a=new Personne("","","","");
 
-        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+NOM_PERSONNE+"="+nom_personne, null);
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+USERNAME+"= ? AND "+NOM_PERSONNE+" = ?" , new String[]{username,nom_personne});
+        if(c.getCount()==0){
+            return null;
+        }
         if (c.moveToFirst()) {
-            a.setNom_personne(c.getString(c.getColumnIndex(NOM_PERSONNE)));
-            a.setPseudo(c.getString(c.getColumnIndex(USERNAME)));
+            a.setNom(c.getString(c.getColumnIndex(NOM)));
+            a.setPrenom(c.getString(c.getColumnIndex(PRENOM)));
+            a.setDate(c.getString(c.getColumnIndex(DATE)));
+            a.setCathegorie(c.getString(c.getColumnIndex(CATHEGORIE)));
             c.close();
         }
 
         return a;
+    }
+
+    public boolean personnePresent(String username, String nom_personne){
+        Cursor c = db.rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+USERNAME+"= ? AND "+NOM_PERSONNE+" = ?", new String[]{username,nom_personne});
+        if(c.getCount()==0){
+            return false;
+        }
+        return true;
     }
 
     public Cursor getPersonnes() {

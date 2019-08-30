@@ -32,7 +32,7 @@ public class New_login extends Login {
         creat_btn = (Button) findViewById(R.id.button_creat);
         return_1 = (Button) findViewById(R.id.button_return);
 
-        username = (EditText) findViewById(R.id.username);
+        username = (EditText) findViewById(R.id.view_username);
 
         password = (EditText) findViewById(R.id.password_1);
 

@@ -124,13 +124,13 @@
         android:layout_width="42dp"
         android:layout_height="43dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ajouter_magasin"
-        app:layout_constraintVertical_bias="0.211" />
+        app:layout_constraintVertical_bias="0.239" />
 
     <TextView
         android:id="@+id/cathegorie"
@@ -145,7 +145,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/sauver"
         app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -190,7 +190,7 @@
         android:text="Cathégorie:"
         app:layout_constraintBottom_toTopOf="@+id/cathegorie"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
