@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bleu_clair"
     tools:context=".activity.New_login">
 
     <Button
@@ -14,6 +15,8 @@
         android:layout_marginRight="176dp"
         android:layout_marginBottom="52dp"
         android:text="Creat"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/boutton_bleu"
         app:layout_constraintBottom_toTopOf="@+id/button_return"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -21,10 +24,12 @@
         android:id="@+id/password_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
+        android:background="@drawable/edit_bleu"
+        android:textColor="@color/bleu_fonce"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_username" />
@@ -34,26 +39,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_bleu"
+        android:textColor="@color/bleu_fonce"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/button_creat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_1"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintVertical_bias="0.153" />
 
     <EditText
         android:id="@+id/view_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/edit_bleu"
+        android:textColor="@color/bleu_fonce"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="UserName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -62,9 +72,10 @@
         android:layout_width="78dp"
         android:layout_height="38dp"
         android:layout_marginTop="84dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:text="User_name"
+        android:textColor="@color/bleu_fonce"
         app:layout_constraintEnd_toStartOf="@+id/view_username"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -73,9 +84,10 @@
         android:layout_width="78dp"
         android:layout_height="38dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:text="password"
+        android:textColor="@color/bleu_fonce"
         app:layout_constraintEnd_toStartOf="@+id/password_1"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -84,10 +96,11 @@
         android:layout_width="141dp"
         android:layout_height="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="96dp"
         android:text="confirme password"
+        android:textColor="@color/bleu_fonce"
         app:layout_constraintBottom_toTopOf="@+id/button_creat"
         app:layout_constraintEnd_toStartOf="@+id/password_confirm"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -101,6 +114,7 @@
         android:layout_marginEnd="168dp"
         android:layout_marginRight="168dp"
         android:text="New_account"
+        android:textColor="@color/bleu_fonce"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,6 +125,8 @@
         android:layout_marginTop="444dp"
         android:layout_marginEnd="176dp"
         android:layout_marginRight="176dp"
+        android:background="@drawable/boutton_bleu"
+        android:textColor="#FFFFFF"
         android:text="Return"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bleu_clair"
     tools:context=".activity.Put_souhait_personne">
 
     <Button
@@ -17,6 +18,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Button"
+        android:background="@drawable/boutton_orange"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
@@ -34,6 +37,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="60dp"
         android:text="Button"
+        android:background="@drawable/boutton_vert"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.452"
@@ -49,6 +54,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="204dp"
         android:text="Retour"
+        android:background="@drawable/boutton_rouge"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"

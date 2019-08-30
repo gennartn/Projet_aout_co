@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/jaune"
     tools:context=".activity.supp_liste_article">
 
     <TextView
@@ -16,6 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/orange_fonce"
         android:text="Le Nom de l'article a supprimer"
         app:layout_constraintBottom_toTopOf="@+id/supprimer_article"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +37,8 @@
         android:layout_marginBottom="52dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:background="@drawable/edit_orange"
+        android:textColor="@color/orange_fonce"
         app:layout_constraintBottom_toTopOf="@+id/supprimer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
@@ -49,6 +53,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
+        android:background="@drawable/boutton_rouge"
+        android:textColor="#FFFFFF"
         android:text="Suprimer"
         app:layout_constraintBottom_toTopOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +70,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="132dp"
+        android:background="@drawable/boutton_orange"
+        android:textColor="#FFFFFF"
         android:text="Retour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

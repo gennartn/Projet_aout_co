@@ -3,4 +3,18 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="rouge">#FE0101</color>
+    <color name="bleu_retour">#017FFE</color>
+    <color name="bleu_fonce">#2301FE</color>
+    <color name="bleu_clair">#BEE3EC</color>
+    <color name="vert_clair">#98F3A4</color>
+    <color name="vert_fonce">#076045</color>
+    <color name="vert_beau">#8FF483</color>
+    <color name="jaune">#F1FB61</color>
+    <color name="orange_fonce">#EA9311</color>
+
+
+
+
 </resources>

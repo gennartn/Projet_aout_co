@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bleu_clair"
     tools:context=".activity.sauver_liste_de_souhait">
 
     <Button
@@ -17,6 +18,8 @@
         android:layout_marginRight="168dp"
         android:layout_marginBottom="64dp"
         android:text="Sauver"
+        android:background="@drawable/boutton_rouge"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -33,6 +36,8 @@
         android:layout_marginRight="40dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:background="@drawable/edit_orange"
+        android:textColor="@color/orange_fonce"
         android:text="Nom de la liste de souhait"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,12 +46,14 @@
         android:id="@+id/destinataire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
+        android:background="@drawable/edit_vert"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="destinataire"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nom_liste_souhait" />
 
@@ -57,6 +64,7 @@
         android:layout_marginTop="108dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
+        android:textColor="@color/bleu_fonce"
         android:text="NOM"
         app:layout_constraintEnd_toStartOf="@+id/nom_liste_souhait"
         app:layout_constraintTop_toTopOf="parent" />
@@ -70,6 +78,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:text="PERSONNE"
+        android:textColor="@color/bleu_fonce"
         app:layout_constraintBottom_toTopOf="@+id/button_save"
         app:layout_constraintEnd_toStartOf="@+id/destinataire"
         app:layout_constraintTop_toBottomOf="@+id/textView_nom"
@@ -85,6 +94,8 @@
         android:layout_marginRight="168dp"
         android:layout_marginBottom="220dp"
         android:text="retour"
+        android:background="@drawable/boutton_rouge"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

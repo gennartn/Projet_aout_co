@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/vert_clair"
     tools:context=".activity.display_personne">
 
     <TextView
@@ -12,14 +13,18 @@
         android:layout_height="41dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Username"
+        android:textColor="@color/vert_fonce"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/edit_nom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_nom"
@@ -31,6 +36,8 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:background="@drawable/edit_vert"
+        android:textColor="@color/vert_fonce"
         android:text="Nom:"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/view_nom"
@@ -48,6 +55,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="36dp"
         android:textSize="18sp"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/edit_prenom"
         app:layout_constraintEnd_toStartOf="@+id/ajouter_nom"
         app:layout_constraintHorizontal_bias="0.463"
@@ -63,6 +71,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="44dp"
         android:textSize="18sp"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/edit_date"
         app:layout_constraintEnd_toStartOf="@+id/ajouter_prenom"
         app:layout_constraintHorizontal_bias="0.434"
@@ -78,6 +87,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="48dp"
         android:textSize="18sp"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
         app:layout_constraintEnd_toStartOf="@+id/ajouter_date"
         app:layout_constraintHorizontal_bias="0.493"
@@ -95,6 +105,8 @@
         android:inputType="textPersonName"
         android:text="Prénom:"
         android:textSize="12sp"
+        android:background="@drawable/edit_vert"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/view_prenom"
         app:layout_constraintEnd_toStartOf="@+id/ajouter_prenom"
         app:layout_constraintHorizontal_bias="0.444"
@@ -112,6 +124,8 @@
         android:inputType="textPersonName"
         android:text="Date de naissance:"
         android:textSize="12sp"
+        android:background="@drawable/edit_vert"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/view_date"
         app:layout_constraintEnd_toStartOf="@+id/ajouter_date"
         app:layout_constraintStart_toStartOf="parent" />
@@ -126,6 +140,8 @@
         android:layout_marginBottom="84dp"
         android:text="Ajouter"
         android:textSize="10sp"
+        android:background="@drawable/boutton_vert"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/ajouter_prenom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_username"
@@ -140,6 +156,8 @@
         android:layout_marginBottom="72dp"
         android:text="Ajouter"
         android:textSize="10sp"
+        android:background="@drawable/boutton_vert"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/ajouter_date"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -152,6 +170,8 @@
         android:layout_marginBottom="96dp"
         android:text="Ajouter"
         android:textSize="10sp"
+        android:background="@drawable/boutton_vert"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/spinner2"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -161,7 +181,8 @@
         android:layout_height="39dp"
         android:layout_marginEnd="112dp"
         android:layout_marginRight="112dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="60dp"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -175,6 +196,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
         android:textSize="18sp"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/sauver"
         app:layout_constraintEnd_toStartOf="@+id/spinner2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -190,6 +212,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Cathégorie:"
+        android:textColor="@color/vert_fonce"
         app:layout_constraintBottom_toTopOf="@+id/view_spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.112"
@@ -203,11 +226,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="16dp"
         android:text="Sauver"
+        android:background="@drawable/boutton_rouge"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/retour"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -217,6 +242,8 @@
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         android:layout_marginBottom="4dp"
+        android:background="@drawable/boutton_vert"
+        android:textColor="#FFFFFF"
         android:text="retour"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
