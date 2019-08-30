@@ -1,13 +1,13 @@
 package com.example.myapplication_co_aout.model;
 
-import java.util.ArrayList;
+
 
 public class Liste_article {
 
     private String nom_article;
 
 
-    // Constructeur
+
     public Liste_article(String nom_article) {
         this.nom_article=nom_article;
     }

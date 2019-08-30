@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.example.myapplication_co_aout.R;
 import com.example.myapplication_co_aout.Sql.Database_log;
 import com.example.myapplication_co_aout.model.Log;
-import com.example.myapplication_co_aout.model.Personne;
 import com.example.myapplication_co_aout.model.Utilisateur;
 
 

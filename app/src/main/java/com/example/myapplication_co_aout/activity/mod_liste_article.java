@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.myapplication_co_aout.R;
 import com.example.myapplication_co_aout.Sql.Database_article;
 import com.example.myapplication_co_aout.Sql.Database_list_article;
-import com.example.myapplication_co_aout.Sql.Database_list_souhait;
+
 
 public class mod_liste_article extends AppCompatActivity {
 

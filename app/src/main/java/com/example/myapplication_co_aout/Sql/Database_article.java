@@ -28,10 +28,10 @@ public class Database_article {
             " "+MAGASIN+" TEXT," +
             " "+CATHEGORIE+" TEXT" +
             ");";
-    private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
+    private MySQLite maBaseSQLite;
     private SQLiteDatabase db;
 
-    // Constructeur
+
     public Database_article(Context context)
     {
         maBaseSQLite = MySQLite.getInstance(context);
@@ -39,13 +39,11 @@ public class Database_article {
 
     public void open()
     {
-        //on ouvre la table en lecture/écriture
         db = maBaseSQLite.getWritableDatabase();
     }
 
     public void close()
     {
-        //on ferme l'accès à la BDD
         db.close();
     }
 
@@ -63,13 +61,10 @@ public class Database_article {
         values.put(MAGASIN,article.getNom_magasin());
         values.put(CATHEGORIE,article.getNom_cathegorie());
 
-        // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
     }
 
     public int modInfosArticle(Article article,Article nouveau_article, String utilisateur, String nom_souhait) {
-        // modification d'un enregistrement
-        // valeur de retour : (int) nombre de lignes affectées par la requête
 
         ContentValues values = new ContentValues();
         values.put(USERNAME ,utilisateur);
@@ -109,8 +104,6 @@ public class Database_article {
     }
 
     public int supInfosUnArticle(String article, String utilisateur, String nom_souhait) {
-        // suppression d'un enregistrement
-        // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
         String where = ARTICLE+" = ? AND "+USERNAME+ " = ? AND "+NOM_LISTE_SOUHAIT+" = ?";
         String[] whereArgs = {article, utilisateur, nom_souhait};
@@ -153,9 +146,5 @@ public class Database_article {
         return true;
     }
 
-    public Cursor getInfosArticle() {
-        // sélection de tous les enregistrements de la table
-        return db.rawQuery("SELECT * FROM "+TABLE_NAME+ " WHERE "+USERNAME+" = ?", null);
-    }
 
 }

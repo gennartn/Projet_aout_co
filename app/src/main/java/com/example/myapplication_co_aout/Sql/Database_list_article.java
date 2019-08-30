@@ -23,7 +23,7 @@ public class Database_list_article {
             ");";
 
 
-    private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
+    private MySQLite maBaseSQLite;
     private SQLiteDatabase db;
 
 
@@ -61,8 +61,6 @@ public class Database_list_article {
     }
 
     public int modListArticle(String article, String nouvelle_article, String nom_souhait, String utilisateur) {
-        // modification d'un enregistrement
-        // valeur de retour : (int) nombre de lignes affectées par la requête
 
         ContentValues values = new ContentValues();
         values.put(USERNAME, utilisateur);
@@ -89,8 +87,6 @@ public class Database_list_article {
 
     public int supUnArticle(String article, String nom_souhait, String utilisateur){
 
-        //suprimer les information de l'article
-        //supInfosArticle(article,nom_souhait,utilisateur);
 
         String where = NOM_LISTE_SOUHAIT+" =? and "+ARTICLE+" =? and "+USERNAME+ " =?";
         String[] whereArgs = {nom_souhait, article, utilisateur};
@@ -101,8 +97,6 @@ public class Database_list_article {
     public int suppArticle(String souhait, String utilisateur){
         String where = NOM_LISTE_SOUHAIT+" =? and "+USERNAME+ " =?";
         String[] whereArgs = {souhait, utilisateur};
-        //Database_list_article db_A = new Database_list_article(this);
-
 
         return db.delete(TABLE_NAME, where, whereArgs);
     }

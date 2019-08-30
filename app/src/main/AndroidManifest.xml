@@ -5,19 +5,14 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="PROJET"
+        android:label="Mes listes de souhaits"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SpinnerArticle"></activity>
-        <activity android:name=".infos_article2" />
-        <activity android:name=".model.cathegorie_article_deroulant" />
-        <activity android:name=".activity.infos_article" />
         <activity android:name=".activity.display_article" />
         <activity android:name=".activity.supp_liste_article" />
         <activity android:name=".activity.mod_liste_article" />
         <activity android:name=".activity.sauver_liste_article" />
-        <activity android:name=".model.ListeArticleAdapter" />
         <activity android:name=".activity.display_personne" />
         <activity android:name=".activity.display_liste_article" />
         <activity android:name=".activity.Put_souhait_personne" />

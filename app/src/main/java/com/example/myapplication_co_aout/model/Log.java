@@ -5,7 +5,7 @@ public class Log {
     private String username;
     private String password;
 
-    // Constructeur
+
     public Log(String username,String password) {
         this.username=username;
         this.password=password;

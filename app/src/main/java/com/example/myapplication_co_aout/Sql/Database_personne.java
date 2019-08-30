@@ -25,10 +25,10 @@ public class Database_personne {
             " "+DATE+" TEXT," +
             " "+CATHEGORIE+" TEXT" +
             ");";
-    private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
+    private MySQLite maBaseSQLite;
     private SQLiteDatabase db;
 
-    // Constructeur
+
     public Database_personne(Context context)
     {
         maBaseSQLite = MySQLite.getInstance(context);
@@ -36,13 +36,11 @@ public class Database_personne {
 
     public void open()
     {
-        //on ouvre la table en lecture/écriture
         db = maBaseSQLite.getWritableDatabase();
     }
 
     public void close()
     {
-        //on ferme l'accès à la BDD
         db.close();
     }
 
@@ -51,7 +49,6 @@ public class Database_personne {
     }
 
     public long addPersonne(Personne personne, String username, String nom_personne) {
-        // Ajout d'un enregistrement dans la table
 
         ContentValues values = new ContentValues();
         values.put(USERNAME ,username);
@@ -61,13 +58,11 @@ public class Database_personne {
         values.put(DATE ,personne.getDate());
         values.put(CATHEGORIE,personne.getCathegorie());
 
-        // insert() retourne l'id du nouvel enregistrement inséré, ou -1 en cas d'erreur
         return db.insert(TABLE_NAME,null,values);
     }
 
     public int modPersonne(Personne personne, Personne nouvelle_personne, String username, String nom_personne) {
-        // modification d'un enregistrement
-        // valeur de retour : (int) nombre de lignes affectées par la requête
+
 
         ContentValues values = new ContentValues();
         values.put(USERNAME ,username);
@@ -94,8 +89,6 @@ public class Database_personne {
     }
 
     public int supPersonne(String username, String nom_personne) {
-        // suppression d'un enregistrement
-        // valeur de retour : (int) nombre de lignes affectées par la clause WHERE, 0 sinon
 
         String where = NOM_PERSONNE+" = ? AND "+USERNAME+" = ?";
         String[] whereArgs = {username, nom_personne};
@@ -128,10 +121,5 @@ public class Database_personne {
             return false;
         }
         return true;
-    }
-
-    public Cursor getPersonnes() {
-        // sélection de tous les enregistrements de la table
-        return db.rawQuery("SELECT * FROM "+TABLE_NAME, null);
     }
 }

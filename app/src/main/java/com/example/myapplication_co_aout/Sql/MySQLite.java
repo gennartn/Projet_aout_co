@@ -28,8 +28,7 @@ public class MySQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        // Création de la base de données
-        // on exécute ici les requêtes de création des tables
+
         sqLiteDatabase.execSQL(Database_log.CREATE_TABLE_LOG);
         sqLiteDatabase.execSQL(Database_article.CREATE_TABLE_ARTICLE);
         sqLiteDatabase.execSQL(Database_list_souhait.CREATE_TABLE_LISTE_DE_SOUHAIT);
@@ -39,9 +38,7 @@ public class MySQLite extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
-        // Mise à jour de la base de données
-        // méthode appelée sur incrémentation de DATABASE_VERSION
-        // on peut faire ce qu'on veut ici, comme recréer la base :
+
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Database_list_article.getTableName());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Database_list_souhait.getTableName());
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Database_log.getTableName());

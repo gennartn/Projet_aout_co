@@ -62,10 +62,6 @@ public class display_liste_souhait extends AppCompatActivity {
 
                 intent.putExtras(bundle);
 
-                //intent.putExtra("EXTRA_MESSAGE", souhait);
-                //intent.putExtra("EXTRA_MESSAGE1",personne);
-
-
                 startActivity(intent);
             }
         });

@@ -5,7 +5,7 @@ public class Liste_souhait_model {
     private String nom_liste;
     private String nom_personne;
 
-    // Constructeur
+
     public Liste_souhait_model(String nom_liste,String nom_personne) {
         this.nom_liste=nom_liste;
         this.nom_personne=nom_personne;

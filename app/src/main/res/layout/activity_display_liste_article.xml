@@ -18,6 +18,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="124dp"
         android:background="@drawable/edit_orange"
+        android:divider="@drawable/boutton_orange"
         app:layout_constraintBottom_toTopOf="@+id/retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"

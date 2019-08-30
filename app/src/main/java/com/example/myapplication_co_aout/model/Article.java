@@ -8,7 +8,6 @@ public class Article {
     private String magasin;
     private String cathegorie;
 
-        // Constructeur
     public Article(String nom_article,String prix, String magasin, String cathegorie) {
         this.nom_article=nom_article;
         this.prix=prix;

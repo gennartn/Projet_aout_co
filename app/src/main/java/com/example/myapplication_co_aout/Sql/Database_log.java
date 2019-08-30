@@ -17,10 +17,10 @@ public class Database_log {
             " "+COL_1+" TEXT primary key," +
             " "+COL_2+" TEXT" +
             ");";
-    private MySQLite maBaseSQLite; // notre gestionnaire du fichier SQLite
+    private MySQLite maBaseSQLite;
     private SQLiteDatabase db;
 
-    // Constructeur
+
     public Database_log(Context context)
     {
         maBaseSQLite = MySQLite.getInstance(context);
@@ -28,13 +28,11 @@ public class Database_log {
 
     public void open()
     {
-        //on ouvre la table en lecture/écriture
         db = maBaseSQLite.getWritableDatabase();
     }
 
     public void close()
     {
-        //on ferme l'accès à la BDD
         db.close();
     }
     public static String getTableName(){
@@ -57,10 +55,6 @@ public class Database_log {
         else{
             return true;
         }
-    }
-    public Cursor getAllData(){
-        Cursor res = db.rawQuery("select * from "+TABLE_NAME,null);
-        return res;
     }
 
     public boolean checkData(Log log) {
