@@ -97,14 +97,14 @@ public class display_article extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String temp = edit_prix.getText().toString();
-                if(!temp.equals("")){
+                if(!temp.equals("") && !temp.equals("Prix(euro):")){
                     nouveau_article.setPrix_article(temp);
                     view_prix.setText(nouveau_article.getPrix_article());
-                    edit_prix.setText("Prix:");
+                    edit_prix.setText("Prix(euro):");
                 }
                 else{
                     Toast.makeText(display_article.this, "Vous n'avez rien noté", Toast.LENGTH_LONG).show();
-                    edit_prix.setText("Prix:");
+                    edit_prix.setText("Prix(euro):");
                 }
 
             }
@@ -114,7 +114,7 @@ public class display_article extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String temp = edit_magasin.getText().toString();
-                if(!temp.equals("")){
+                if(!temp.equals("") && !temp.equals("Nom du magasin:")){
                     nouveau_article.setNom_magasin(temp);
                     view_magasin.setText(nouveau_article.getNom_magasin());
                     edit_magasin.setText("Nom du magasin:");

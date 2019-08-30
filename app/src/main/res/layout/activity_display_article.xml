@@ -48,7 +48,7 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Prix:"
+        android:text="Prix(euro):"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/view_prix"
         app:layout_constraintEnd_toEndOf="parent"

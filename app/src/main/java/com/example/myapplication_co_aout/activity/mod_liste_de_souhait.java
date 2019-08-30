@@ -9,7 +9,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.myapplication_co_aout.R;
+import com.example.myapplication_co_aout.Sql.Database_article;
+import com.example.myapplication_co_aout.Sql.Database_list_article;
 import com.example.myapplication_co_aout.Sql.Database_list_souhait;
+import com.example.myapplication_co_aout.Sql.Database_personne;
 
 public class mod_liste_de_souhait extends AppCompatActivity {
 
@@ -22,6 +25,9 @@ public class mod_liste_de_souhait extends AppCompatActivity {
     private static Button retour;
 
     private Database_list_souhait db;
+    private Database_list_article db_article;
+    private Database_article db_infos;
+    private Database_personne db_pers;
 
 
     @Override
@@ -40,6 +46,12 @@ public class mod_liste_de_souhait extends AppCompatActivity {
 
         db = new Database_list_souhait(getApplicationContext());
 
+        db_article = new Database_list_article(getApplicationContext());
+
+        db_infos = new Database_article(getApplicationContext());
+
+        db_pers = new Database_personne(getApplicationContext());
+
         modifier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,10 +59,19 @@ public class mod_liste_de_souhait extends AppCompatActivity {
                 String O_personne = personne.getText().toString();
                 String O_nouveau_souhait = nouveau_souhait.getText().toString();
                 String O_nouvelle_personne = nouvelle_personne.getText().toString();
+                String O_utilisateur = Login.getUtilisateurPrincipale().getUsername();
                 db.open();
+                db_infos.open();
+                db_article.open();
+                db_pers.open();
                 if(!O_souhait.equals("") && !O_personne.equals("") && !O_nouveau_souhait.equals("") && !O_nouvelle_personne.equals("")){
 
-                    if(db.modListSouhait(O_souhait, O_personne, O_nouveau_souhait,O_nouvelle_personne,Login.getUtilisateurPrincipale().getUsername())>0){
+
+                    if(db.modListSouhait(O_souhait, O_personne, O_nouveau_souhait,O_nouvelle_personne,O_utilisateur)>0){
+                        db_infos.modNomSouhait(O_utilisateur,O_souhait,O_nouveau_souhait);
+                        db_article.modNomSouhait(O_utilisateur, O_souhait, O_nouveau_souhait);
+                        db_pers.modNomPersonne(O_utilisateur,O_personne,O_nouvelle_personne);
+
                         Toast.makeText(mod_liste_de_souhait.this, "Le nom de la liste de souhait a été modifié", Toast.LENGTH_LONG).show();
                         souhait.setText("");
                         personne.setText("");
@@ -65,6 +86,9 @@ public class mod_liste_de_souhait extends AppCompatActivity {
                 else{
                     Toast.makeText(mod_liste_de_souhait.this, "Vous n'avez rien noté ou vous n'avez pas tous complété", Toast.LENGTH_LONG).show();
                 }
+                db_pers.close();
+                db_article.close();
+                db_infos.close();
                 db.close();
 
             }

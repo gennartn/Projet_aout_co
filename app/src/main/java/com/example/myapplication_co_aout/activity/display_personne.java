@@ -96,7 +96,7 @@ public class display_personne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String temp = edit_nom.getText().toString();
-                if(!temp.equals("")){
+                if(!temp.equals("") && !temp.equals("Nom:")){
                     nouvelle_personne.setNom(temp);
                     view_nom.setText(nouvelle_personne.getNom());
                     edit_nom.setText("Nom:");
@@ -113,7 +113,7 @@ public class display_personne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String temp = edit_prenom.getText().toString();
-                if(!temp.equals("")){
+                if(!temp.equals("") && !temp.equals("Prenom:")){
                     nouvelle_personne.setPrenom(temp);
                     view_prenom.setText(nouvelle_personne.getPrenom());
                     edit_prenom.setText("Prenom:");
@@ -130,7 +130,7 @@ public class display_personne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String temp = edit_date.getText().toString();
-                if(!temp.equals("")){
+                if(!temp.equals("") && !temp.equals("Date de naissance:")){
                     nouvelle_personne.setDate(temp);
                     view_date.setText(nouvelle_personne.getDate());
                     edit_date.setText("Date de naissance:");

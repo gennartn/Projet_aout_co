@@ -75,6 +75,18 @@ public class Database_list_article {
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
+    public int modNomSouhait(String utilisateur, String souhait, String nouveau_souhait){
+
+        ContentValues values = new ContentValues();
+        values.put(USERNAME,utilisateur);
+        values.put(NOM_LISTE_SOUHAIT,nouveau_souhait);
+
+        String where = USERNAME+" = ? AND "+ NOM_LISTE_SOUHAIT+" = ?";
+        String[] whereArgs = {utilisateur, souhait};
+
+        return db.update(TABLE_NAME,values, where, whereArgs);
+    }
+
     public int supUnArticle(String article, String nom_souhait, String utilisateur){
 
         //suprimer les information de l'article

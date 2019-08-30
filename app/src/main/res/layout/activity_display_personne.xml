@@ -10,20 +10,16 @@
         android:id="@+id/view_username"
         android:layout_width="218dp"
         android:layout_height="41dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="92dp"
         android:text="Username"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/edit_nom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/edit_nom"
@@ -132,16 +128,16 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/ajouter_prenom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_username"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/ajouter_prenom"
         android:layout_width="76dp"
         android:layout_height="31dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginRight="88dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:layout_marginBottom="72dp"
         android:text="Ajouter"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/ajouter_date"

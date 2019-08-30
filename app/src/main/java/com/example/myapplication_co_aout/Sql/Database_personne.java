@@ -82,6 +82,16 @@ public class Database_personne {
 
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
+    public int modNomPersonne(String username, String personne, String nouvelle_personne){
+        ContentValues values = new ContentValues();
+        values.put(USERNAME,username);
+        values.put(NOM_PERSONNE,nouvelle_personne);
+
+        String where = USERNAME+" = ? AND "+ NOM_PERSONNE+" = ?";
+        String[] whereArgs = {username, personne};
+
+        return db.update(TABLE_NAME,values, where, whereArgs);
+    }
 
     public int supPersonne(String username, String nom_personne) {
         // suppression d'un enregistrement

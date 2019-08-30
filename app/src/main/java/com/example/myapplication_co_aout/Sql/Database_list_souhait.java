@@ -78,6 +78,9 @@ public class Database_list_souhait  {
         return db.update(TABLE_NAME, values, where, whereArgs);
     }
 
+
+
+
    /* public int supListSouhait(String souhait, String utilisateur) {
 
         //supprimer les articles associé a cette liste
