@@ -180,7 +180,7 @@ public class display_article extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             cathegorie.setText(arraylist.get(position));
-            if(cathegorie.getText().equals("")){
+            if(cathegorie.getText().equals("") || cathegorie.getText().equals("Cathégorie:")){
                 if(article!=null){
                     cathegorie.setText(article.getNom_cathegorie());
 

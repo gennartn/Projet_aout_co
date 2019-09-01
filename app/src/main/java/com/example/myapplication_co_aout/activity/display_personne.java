@@ -196,7 +196,7 @@ public class display_personne extends AppCompatActivity {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             view_spinner.setText(arraylist.get(position));
-            if(view_spinner.getText().equals("")){
+            if(view_spinner.getText().equals("") || view_spinner.getText().equals("Cathégorie:")){
                 if(personne!=null){
                     view_spinner.setText(personne.getCathegorie());
 
